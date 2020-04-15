@@ -5,7 +5,7 @@
   "icon" : "icon",
   "mainlink" : "mainlink",
   "citation" : "citation",
-  "footer" : "footer.md",
+  "footer_file" : "footer.md",
   "index_file" : "index.md",
-  "index_sidebar" : "sidebar.md"
+  "sidebar_file" : "sidebar.md"
 }

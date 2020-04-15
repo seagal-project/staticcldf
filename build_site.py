@@ -8,6 +8,9 @@ including Netlify.
 
 There is no command-line argument parsing, at least for the time being, as
 the entire configuration is supposed to take place through JSON files.
+
+Upon deployment, previous files are not deleted: success in new generation
+and deployment should be checked by the user from the script return codes.
 """
 
 # TODO: decide on concepts/parameters
@@ -146,8 +149,59 @@ def load_templates(base_path):
 
     return sidebar_template, nosidebar_template
 
+def load_config(base_path):
+    """
+    Load configuration, contents, and replacements.
 
-# TODO: delete all output files before beginning, perhaps through flag
+    The function will load configuration from a single JSON config file,
+    returning a dictionary of configurations and a dictionary of
+    replacements that includes markdown contents read from files.
+
+    Parameters
+    ----------
+    base_path : pathlib.Path
+        Base path of the deployment system.
+
+    Returns
+    -------
+    config : dict
+        A dictionary of dataset and webpage configurations.
+    replaces : dict
+        A dictionary of replacements, for filling templates.
+    """
+
+    # Load JSON data
+    logging.info("Loading JSON configuration...")
+    with open("config.json") as config_file:
+        config = json.load(config_file)
+
+    # Inner function for loading markdown files and converting to HTML
+    # TODO: add actual md->html conversion
+    def _md2html(filename, base_path):
+        logging.info("Reading contents from `%s`..." % filename)
+        content_path = base_path / "contents" / filename
+        with open(content_path.as_posix()) as handler:
+            source = handler.read()
+
+        return source
+
+    # Build replacement dictionary; remember that, in order to make
+    # deployment easy, we are being quite strict here in terms of
+    # templates, etc.
+    replaces = {
+        "title" : config.pop("title"),
+        "description" : config.pop("description"),
+        "author" : config.pop("author"),
+        "icon" : config.pop("icon"), # TODO: rename to favicon
+        "mainlink": config.pop("mainlink"),
+        "citation": config.pop("citation"),
+        "footer" : _md2html(config.pop("footer_file"), base_path),
+        "home_sb_main" : _md2html(config.pop("index_file"), base_path),
+        "home_sidebar" : _md2html(config.pop("sidebar_file"), base_path),
+    }
+
+    return config, replaces
+
 def main():
     """
     Entry point for the script.
@@ -159,21 +213,18 @@ def main():
     output_path = base_path / "_site"
 
     # Load JSON configuration, hard-coded path
-    logging.info("Loading JSON configuration...")
-    with open("config.json") as config_file:
-        config = json.load(config_file)
-    logging.info("Sucessefully loaded configuration.")
+    config, replaces = load_config(base_path)
 
     # Load HTML templates
     sb_template, nosb_template = load_templates(base_path)
 
     # Build and write index.html
     # TODO: read replace dictionary
-    build_index(sb_template, config, output_path)
+    build_index(sb_template, replaces, output_path)
 
     # Read data tables from CLDF files
     cldf_data = read_cldf_tables(base_path)
-    build_tables(cldf_data, config, nosb_template, output_path)
+    build_tables(cldf_data, replaces, nosb_template, output_path)
 
 
 if __name__ == "__main__":
