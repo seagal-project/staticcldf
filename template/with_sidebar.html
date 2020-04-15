@@ -3,12 +3,12 @@
 
 <head>
 
-    <title>$title</title>
+    <title>${title}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="$description">
-    <meta name="author" content="$author">
-    <link rel="shortcut icon" href="$icon" type="image/x-icon" />
+    <meta name="description" content="${description}">
+    <meta name="author" content="${author}">
+    <link rel="shortcut icon" href="${icon}" type="image/x-icon" />
 
     <link href="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" integrity="sha384-4FeI0trTH/PCsLWrGCD1mScoFu9Jf2NdknFdFoJhXZFwsvzZ3Bo5sAh7+zL8Xgnd" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet">
@@ -29,25 +29,25 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <a href="$mainlink" class="brand">$title</a>
+                <a href="${mainlink}" class="brand">${title}</a>
 
                 <div class="nav-collapse collapse">
                     <ul class="nav">
 
                         <li id="menuitem_dataset" class="active">
-                            <a href="$mainlink" title="Home">Home</a>
+                            <a href="${mainlink}" title="Home">Home</a>
                         </li>
 
                         <li id="menuitem_languages" class="">
-                            <a href="$mainlink/languages.html" title="Languages">Languages</a>
+                            <a href="${mainlink}/languages.html" title="Languages">Languages</a>
                         </li>
 
                         <li id="menuitem_parameters" class="">
-                            <a href="$mainlink/parameters.html" title="Concepts">Concepts</a>
+                            <a href="${mainlink}/parameters.html" title="Concepts">Concepts</a>
                         </li>
 
                         <li id="menuitem_sources" class="">
-                            <a href="$mainlink/sources.html" title="Sources">Sources</a>
+                            <a href="${mainlink}/sources.html" title="Sources">Sources</a>
                         </li>
                     </ul>
 
@@ -68,19 +68,19 @@
                     <ul class="nav pull-right">
 
                         <li class="">
-                            <a href="$mainlink/help">Help</a>
+                            <a href="${mainlink}/help">Help</a>
                         </li>
 
                         <li class="">
-                            <a href="$mainlink/download">Download</a>
+                            <a href="${mainlink}/download">Download</a>
                         </li>
 
                         <li class="">
-                            <a href="$mainlink/legal">Legal</a>
+                            <a href="${mainlink}/legal">Legal</a>
                         </li>
 
                         <li class="">
-                            <a href="$mainlink/contact">Contact</a>
+                            <a href="${mainlink}/contact">Contact</a>
                         </li>
 
                     </ul>
@@ -94,17 +94,16 @@
         <div class="row-fluid">
             <div class="span8">
 
-                <h2>Welcome to $title</h2>
+                <h2>Welcome to ${title}</h2>
 
                 <div class="home-main">
-                    $home_sb_main
-
+                    ${home_sb_main}
                 </div>
 
                 <div class="well">
                     <h3>How to cite the dataset</h3>
                     <p>
-                        $citation
+                        ${citation}
                     </p>
                 </div>
 
@@ -126,7 +125,7 @@
                     </p>
                 </div>
                 <div class="well home-sidebar">
-                    $home_sidebar
+                    ${home_sidebar}
 
                 </div>
             </div>
@@ -136,7 +135,7 @@
                 <footer>
                     <div class="row-fluid" style="padding-top: 15px; border-top: 1px solid black; padding-bottom: 15px;">
                         <div style="text-align: center; margin-top: 20px;">
-                            $footer
+                            ${footer}
 
                         </div>
                     </div>
