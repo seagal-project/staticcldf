@@ -11,8 +11,10 @@ the entire configuration is supposed to take place through JSON files.
 """
 
 # TODO: decide on concepts/parameters
+# TODO: have a json for configs and one for replacements?
 
 # Import Python standard libraries
+import json
 import logging
 from pathlib import Path
 from string import Template
@@ -23,33 +25,7 @@ from tabulate import tabulate
 LANG_FIELDS = ["Name", "Glottocode", "Latitude", "Longitude", "Family"]
 PARAM_FIELDS = ["Name", "Concepticon_ID", "Concepticon_Gloss"]
 
-# TODO: temporary dictionary for replacements
 # TODO: what to do with mandatory replacements (using safe_substitute now)
-REPLACE = {
-    "title": "chaconarawakan",
-    "description": "description",
-    "author": "author",
-    "icon": "icon",  # rename to favicon
-    "mainlink": "",
-    "home_sb_main": """
-                    <p>
-                    This is an example of static deployment, using data for Chacon's arawakan...
-                    </p>
-                    <p>""",
-    "citation": "Chacon, Thiago C. (2017): Arawakan and Tukanoan contacts in Northwest Amazonia prehistory. PAPIA 27(2). 237-265.",
-    "home_sidebar": """
-                    <p>
-                        The data for this initial website was compiled by Tiago Tresoldi",
-                    </p>
-                    <p>
-                        Language-specific IPA converters were developed by: Tiago Tresoldi
-                    </p>
-                    <p>
-                        The web application is based on the static clld framework, developed by XXX
-                    </p>
-        """,
-    "footer": "here goes the footer",
-}
 
 # TODO: properly implement with pycldf, currently reading with csv
 def read_cldf_tables(base_path):
@@ -108,12 +84,12 @@ def write_html(source, filename):
         handler.write(source)
 
 
-def build_tables(data, template, output_path):
+def build_tables(data, replaces, template, output_path):
     # write languages
     html_table = tabulate(
         data["languages"], headers=LANG_FIELDS, tablefmt="html"
     )
-    lang_replace = REPLACE.copy()
+    lang_replace = replaces.copy()
     lang_replace["home_nosb_main"] = html_table
     lang_source = Template(template)
     lang_source = lang_source.safe_substitute(lang_replace)
@@ -125,7 +101,7 @@ def build_tables(data, template, output_path):
     html_table = tabulate(
         data["concepts"], headers=PARAM_FIELDS, tablefmt="html"
     )
-    param_replace = REPLACE.copy()
+    param_replace = replaces.copy()
     param_replace["home_nosb_main"] = html_table
     param_source = Template(template)
     param_source = param_source.safe_substitute(param_replace)
@@ -182,16 +158,22 @@ def main():
     base_path = Path(__file__).parent.resolve()
     output_path = base_path / "_site"
 
+    # Load JSON configuration, hard-coded path
+    logging.info("Loading JSON configuration...")
+    with open("config.json") as config_file:
+        config = json.load(config_file)
+    logging.info("Sucessefully loaded configuration.")
+
     # Load HTML templates
     sb_template, nosb_template = load_templates(base_path)
 
     # Build and write index.html
     # TODO: read replace dictionary
-    build_index(sb_template, REPLACE, output_path)
+    build_index(sb_template, config, output_path)
 
     # Read data tables from CLDF files
     cldf_data = read_cldf_tables(base_path)
-    build_tables(cldf_data, nosb_template, output_path)
+    build_tables(cldf_data, config, nosb_template, output_path)
 
 
 if __name__ == "__main__":

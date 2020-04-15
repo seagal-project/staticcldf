@@ -1,0 +1,11 @@
+{
+  "title" : "chaconarawakan",
+  "description" : "description",
+  "author" : "author",
+  "icon" : "icon",
+  "mainlink" : "mainlink",
+  "citation" : "citation",
+  "footer" : "footer.md",
+  "index_file" : "index.md",
+  "index_sidebar" : "sidebar.md"
+}
