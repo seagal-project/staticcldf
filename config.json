@@ -1,8 +1,9 @@
 {
+  "output_path" : "_site",
   "title" : "Static CLDF Demo",
   "description" : "A demo site for the `staticcldf` project.",
   "author" : "Tiago Tresoldi",
-  "icon" : "https://clts.clld.org/clld-static/images/favicon.ico",
+  "favicon" : "https://clts.clld.org/clld-static/images/favicon.ico",
   "mainlink" : "https://static-cldf.netlify.com",
   "citation" : "Chacon, Thiago C. (2017): Arawakan and Tukanoan contacts in Northwest Amazonia prehistory. PAPIA 27(2). 237-265.",
   "footer_file" : "footer.md",

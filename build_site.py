@@ -14,7 +14,6 @@ and deployment should be checked by the user from the script return codes.
 """
 
 # TODO: decide on concepts/parameters
-# TODO: have a json for configs and one for replacements?
 
 # Import Python standard libraries
 import json
@@ -87,9 +86,9 @@ def read_cldf_data(base_path, config):
     return cldf_data
 
 
-def build_index(template, replaces, config):
+def build_html(template, replaces, output_file, config):
     """
-    Build and write `index.html`.
+    Build and write an HTML file from template and replacements.
 
     Parameters
     ----------
@@ -102,20 +101,15 @@ def build_index(template, replaces, config):
     """
 
     # Apply replacements
-    logging.info("Applying replacements to generate `index.html`...")
+    logging.info("Applying replacements to generate `%s`...", output_file)
     source = fill_template(template, replaces)
-    logging.info("`index.html` has %i bytes.", len(source))
 
-    # write
-    index_path = config["output_path"] / "index.html"
-    write_html(source, index_path.as_posix())
-
-
-def write_html(source, filename):
-    # Write results
-    with open(filename, "w") as handler:
+    # Write
+    file_path = config["output_path"] / output_file
+    with open(file_path.as_posix(), "w") as handler:
         handler.write(source)
 
+    logging.info("`%s` wrote with %i bytes.", output_file, len(source))
 
 def build_tables(data, replaces, template, config):
     # write languages
@@ -124,10 +118,7 @@ def build_tables(data, replaces, template, config):
     )
     lang_replaces = replaces.copy()
     lang_replaces["home_nosb_main"] = html_table
-    lang_source = fill_template(template, lang_replaces)
-
-    lang_path = config["output_path"] / "languages.html"
-    write_html(lang_source, lang_path.as_posix())
+    build_html(template, lang_replaces, "languages.html", config)
 
     # write concepts
     html_table = tabulate(
@@ -135,10 +126,7 @@ def build_tables(data, replaces, template, config):
     )
     param_replaces = replaces.copy()
     param_replaces["home_nosb_main"] = html_table
-    param_source = fill_template(template, param_replaces)
-
-    param_path = config["output_path"] / "parameters.html"
-    write_html(param_source, param_path.as_posix())
+    build_html(template, param_replaces, "parameters.html", config)
 
 
 def load_templates(config):
@@ -205,7 +193,7 @@ def load_config(base_path):
         config = json.load(config_file)
 
     # Inner function for loading markdown files and converting to HTML
-    # TODO: add actual md->html conversion
+    # TODO: only convert if .md
     def _md2html(filename, base_path):
         logging.info("Reading contents from `%s`..." % filename)
         content_path = base_path / "contents" / filename
@@ -224,7 +212,7 @@ def load_config(base_path):
         "title": config.pop("title"),
         "description": config.pop("description"),
         "author": config.pop("author"),
-        "icon": config.pop("icon"),  # TODO: rename to favicon
+        "favicon": config.pop("favicon"),
         "mainlink": config.pop("mainlink"),  # TODO: should be derived from URL?
         "citation": config.pop("citation"),
         "footer": _md2html(config.pop("footer_file"), base_path),
@@ -247,13 +235,13 @@ def main():
     # TODO: allow user-specified output
     config, replaces = load_config(base_path)
     config["base_path"] = base_path
-    config["output_path"] = base_path / "_site"
+    config["output_path"] = base_path / config['output_path']
 
     # Load HTML templates
     sb_template, nosb_template = load_templates(config)
 
     # Build and write index.html
-    build_index(sb_template, replaces, config)
+    build_html(sb_template, replaces, "index.html", config)
 
     # Read data tables from CLDF files
     cldf_data = read_cldf_data(base_path, config)
