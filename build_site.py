@@ -111,10 +111,14 @@ def build_html(template, replaces, output_file, config):
 
     logging.info("`%s` wrote with %i bytes.", output_file, len(source))
 
+
 def build_tables(data, replaces, template, config):
     # write languages
     html_table = tabulate(
         data["languages"], headers=config["language_fields"], tablefmt="html"
+    )
+    html_table = html_table.replace(
+        "<table>", '<table id="data_table" class="display">'
     )
     lang_replaces = replaces.copy()
     lang_replaces["home_nosb_main"] = html_table
@@ -123,6 +127,9 @@ def build_tables(data, replaces, template, config):
     # write concepts
     html_table = tabulate(
         data["concepts"], headers=config["parameter_fields"], tablefmt="html"
+    )
+    html_table = html_table.replace(
+        "<table>", '<table id="data_table" class="display">'
     )
     param_replaces = replaces.copy()
     param_replaces["home_nosb_main"] = html_table
@@ -235,7 +242,7 @@ def main():
     # TODO: allow user-specified output
     config, replaces = load_config(base_path)
     config["base_path"] = base_path
-    config["output_path"] = base_path / config['output_path']
+    config["output_path"] = base_path / config["output_path"]
 
     # Load HTML templates
     sb_template, nosb_template = load_templates(config)
