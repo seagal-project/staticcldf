@@ -23,6 +23,7 @@ from pathlib import Path
 from string import Template
 
 # Import 3rd party libraries
+import markdown
 from tabulate import tabulate
 
 # TODO: what to do with mandatory replacements (using safe_substitute now)
@@ -178,7 +179,7 @@ def load_config(base_path):
         logging.info("Reading contents from `%s`..." % filename)
         content_path = base_path / "contents" / filename
         with open(content_path.as_posix()) as handler:
-            source = handler.read()
+            source = markdown.markdown(handler.read())
 
         return source
 
@@ -220,7 +221,6 @@ def main():
     sb_template, nosb_template = load_templates(config)
 
     # Build and write index.html
-    # TODO: read replace dictionary
     build_index(sb_template, replaces, config)
 
     # Read data tables from CLDF files
