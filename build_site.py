@@ -122,6 +122,17 @@ def build_html(template, replaces, output_file, config):
 
 
 def build_tables(data, replaces, template, config):
+    # write forms
+    html_table = tabulate(
+        data["form"], headers=config["form_table"], tablefmt="html"
+    )
+    html_table = html_table.replace(
+        "<table>", '<table id="data_table" class="display">'
+    )
+    form_replaces = replaces.copy()
+    form_replaces["home_nosb_main"] = html_table
+    build_html(template, form_replaces, "forms.html", config)
+
     # write languages
     html_table = tabulate(
         data["language"], headers=config["language_table"], tablefmt="html"

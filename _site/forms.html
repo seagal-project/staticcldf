@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Static CLDF Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A demo site for the `staticcldf` project.">
+    <meta name="author" content="Tiago Tresoldi">
+    <link rel="shortcut icon" href="https://clts.clld.org/clld-static/images/favicon.ico" type="image/x-icon" />
+
+    <link href="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" integrity="sha384-4FeI0trTH/PCsLWrGCD1mScoFu9Jf2NdknFdFoJhXZFwsvzZ3Bo5sAh7+zL8Xgnd" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <link href="main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js" integrity="sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc" crossorigin="anonymous"></script>
+
+    <script>
+      $(document).ready( function () {
+        $('#data_table').DataTable();
+      } );
+    </script>
+
+</head>
+
+<body id="r-dataset">
+
+    <div id="top" class="navbar navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <a href="https://static-cldf.netlify.com" class="brand">Static CLDF Demo</a>
+
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+
+                        <li id="menuitem_dataset" class="active">
+                            <a href="https://static-cldf.netlify.com" title="Home">Home</a>
+                        </li>
+
+                        <li id="menuitem_forms" class="">
+                            <a href="https://static-cldf.netlify.com/forms.html" title="Forms">Forms</a>
+                        </li>
+
+                        <li id="menuitem_languages" class="">
+                            <a href="https://static-cldf.netlify.com/languages.html" title="Languages">Languages</a>
+                        </li>
+
+                        <li id="menuitem_parameters" class="">
+                            <a href="https://static-cldf.netlify.com/parameters.html" title="Concepts">Concepts</a>
+                        </li>
+
+                        <li id="menuitem_sources" class="">
+                            <a href="https://static-cldf.netlify.com/sources.html" title="Sources">Sources</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div id="contextnavbar" class="navbar navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target="#second">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div id="second" class="nav-collapse collapse">
+                    <ul class="nav pull-right">
+
+                        <li class="">
+                            <a href="https://static-cldf.netlify.com/help">Help</a>
+                        </li>
+
+                        <li class="">
+                            <a href="https://static-cldf.netlify.com/download">Download</a>
+                        </li>
+
+                        <li class="">
+                            <a href="https://static-cldf.netlify.com/legal">Legal</a>
+                        </li>
+
+                        <li class="">
+                            <a href="https://static-cldf.netlify.com/contact">Contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+
+                <h2>Welcome to Static CLDF Demo</h2>
+
+                <div class="home-main">
+                    <table id="data_table" class="display">
+<thead>
+<tr><th>ID                        </th><th>Value            </th><th>Form             </th><th>Segments                                                                     </th><th>Source                              </th></tr>
+</thead>
+<tbody>
+<tr><td>Achagua-1_i-1             </td><td>nujá             </td><td>nuja             </td><td>['n', 'u', 'j', 'a']                                                         </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-1_i-1              </td><td>nhóa             </td><td>nhóa             </td><td>['ɲ', 'ó/o', 'a']                                                            </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-1_i-1            </td><td>nhú              </td><td>nhú              </td><td>['ɲ', 'ú/u']                                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-1_i-2            </td><td>nu-              </td><td>nu-              </td><td>['n', 'u']                                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-1_i-1             </td><td>núa              </td><td>núa              </td><td>['n', 'ú/u', 'a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-1_i-1            </td><td>ó                </td><td>ó                </td><td>['ó/o']                                                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-1_i-1             </td><td>nuha             </td><td>nuha             </td><td>['n', 'u', 'h', 'a']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-1_i-1              </td><td>nuká             </td><td>nuká             </td><td>['n', 'u', 'k', 'á/a']                                                       </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-2_all-1           </td><td>kinínama         </td><td>kininama         </td><td>['k', 'i', 'n', 'i', 'n', 'a', 'm', 'a']                                     </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-2_all-1            </td><td>phálhai          </td><td>phálhai          </td><td>['pʰ', 'á/a', 'ʎ', 'a', 'i']                                                 </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-2_all-1          </td><td>put'i            </td><td>put'i            </td><td>['p', 'u', 't', 'ʔ', 'i']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-2_all-1           </td><td>canánama         </td><td>kanánama         </td><td>['k', 'a', 'n', 'á/a', 'n', 'a', 'm', 'a']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-2_all-2           </td><td>macáita          </td><td>makáita          </td><td>['m', 'a', 'k', 'á/a', 'i', 't', 'a']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-2_all-1          </td><td>phé?tó?          </td><td>phé?tó?          </td><td>['pʰ', 'é/e', 'ʔ', 't', 'ó/o', 'ʔ']                                          </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-2_all-1            </td><td>piyukeja         </td><td>pijukeha         </td><td>['p', 'i', 'j', 'u', 'k', 'e', 'h', 'a']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-3_ash-1           </td><td>báali            </td><td>ba:li            </td><td>['b', 'a:', 'l', 'i']                                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-3_ash-1            </td><td>-wádzole         </td><td>-wádzole         </td><td>['w', 'á/a', 'dz', 'o', 'l', 'e']                                            </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-3_ash-1          </td><td>pa'ari           </td><td>pa'ari           </td><td>['p', 'a', 'ʔ', 'a', 'r', 'i']                                               </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-3_ash-1           </td><td>balìi            </td><td>balìi            </td><td>['b', 'a', 'l', 'ì/i', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-3_ash-2           </td><td>ibalìiná         </td><td>ibalìiná         </td><td>['i', 'b', 'a', 'l', 'ì/i', 'i', 'n', 'á/a']                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-3_ash-1          </td><td>ókóniigiJíhú     </td><td>ókóniigiJíhú     </td><td>['ó/o', 'k', 'ó/o', 'n', 'ii', 'g', 'i', 'ʒ', 'í/i', 'h', 'ú/u']             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-3_ash-1            </td><td>pai'ilá          </td><td>paiʔilá          </td><td>['p', 'a', 'i', 'ʔ', 'i', 'l', 'á/a']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-4_bark-1          </td><td>íimanaʃi         </td><td>i:manaʃi         </td><td>['i:', 'm', 'a', 'n', 'a', 'ʃ', 'i']                                         </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-4_bark-1           </td><td>-ya              </td><td>-ya              </td><td>['y', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Resigaro-4_bark-1         </td><td>da?mí            </td><td>daʔmí            </td><td>['d', 'a', 'ʔ', 'm', 'í/i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-4_bark-1           </td><td>ímaji            </td><td>ímahi            </td><td>['í/i', 'm', 'a', 'h', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-5_belly-1         </td><td>jawaiʃi          </td><td>jawaiʃi          </td><td>['j', 'a', 'w', 'a', 'i', 'ʃ', 'i']                                          </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-5_belly-1          </td><td>-xáda            </td><td>-xáda            </td><td>['ʃ', 'á/a', 'd', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-5_belly-1        </td><td>te[re]           </td><td>te[re]           </td><td>['t', 'e', 'r', 'e']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-5_belly-1         </td><td>dèe              </td><td>dèe              </td><td>['d', 'è/e', 'e']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-5_belly-1        </td><td>-ii?šáú          </td><td>-ii?šáú          </td><td>['ii', 'ʔ', 'ʃ', 'á/a', 'ú/u']                                               </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-5_belly-1          </td><td>julaji           </td><td>hulahi           </td><td>['h', 'u', 'l', 'a', 'h', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-6_big-1           </td><td>máanuii          </td><td>maanuii          </td><td>['m', 'aa', 'n', 'u', 'ii']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-6_big-1            </td><td>maka-            </td><td>maka-            </td><td>['m', 'a', 'k', 'a']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-6_big-1          </td><td>manuʔú           </td><td>manuʔú           </td><td>['m', 'a', 'n', 'u', 'ʔ', 'ú/u']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-6_big-1           </td><td>manuíri          </td><td>manuíɾi          </td><td>['m', 'a', 'n', 'u', 'í/i', 'ɾ', 'i']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-6_big-1          </td><td>ǰiǰá?aamí        </td><td>ǰiǰá?aamí        </td><td>['dʒ', 'i', 'dʒ', 'á/a', 'ʔ', 'aa', 'm', 'í/i']                              </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-6_big-1            </td><td>ñópo'ojlo        </td><td>ɲópoʔohlo        </td><td>['ɲ', 'ó/o', 'p', 'o', 'ʔ', 'o', 'h', 'l', 'o']                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-7_bird-1          </td><td>míʃidu           </td><td>míʃidu           </td><td>['m', 'í/i', 'ʃ', 'i', 'd', 'u']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-7_bird-1           </td><td>képira           </td><td>képira           </td><td>['k', 'é/e', 'p', 'i', 'r', 'a']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-7_bird-1         </td><td>ʔupira           </td><td>ʔupira           </td><td>['ʔ', 'u', 'p', 'i', 'r', 'a']                                               </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-7_bird-2         </td><td>ku(' )pira       </td><td>ku(' )pira       </td><td>['k', 'u', 'ʔ', 'p', 'i', 'r', 'a']                                          </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-7_bird-1          </td><td>màsibèe          </td><td>màsibèe          </td><td>['m', 'à/a', 's', 'i', 'b', 'è/e', 'e']                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-7_bird-2          </td><td>kuìpìra          </td><td>kuìpìra          </td><td>['k', 'u', 'ì/i', 'p', 'ì/i', 'r', 'a']                                      </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Resigaro-7_bird-1         </td><td>kóʔpíidú         </td><td>kóʔpíidú         </td><td>['k', 'ó/o', 'ʔ', 'p', 'í/i', 'i', 'd', 'ú/u']                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-7_bird-2         </td><td>adovíigí         </td><td>adovíigí         </td><td>['a', 'd', 'o', 'v', 'í/i', 'i', 'g', 'í/i']                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-7_bird-1           </td><td>kupira'aphá      </td><td>kupiraʔapʰá      </td><td>['k', 'u', 'p', 'i', 'r', 'a', 'ʔ', 'a', 'pʰ', 'á/a']                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-8_bite-1          </td><td>-ámua            </td><td>-ámua            </td><td>['á/a', 'm', 'u', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-8_bite-1           </td><td>-mhoa            </td><td>-mhoa            </td><td>['mʰ', 'o', 'a']                                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-8_bite-1         </td><td>amhe             </td><td>amhe             </td><td>['a', 'mʰ', 'e']                                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-8_bite-1          </td><td>ichicúadaca      </td><td>itʃikúadaka      </td><td>['i', 'tʃ', 'i', 'k', 'ú/u', 'a', 'd', 'a', 'k', 'a']                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-8_bite-2          </td><td>imasáaca         </td><td>imasáaka         </td><td>['i', 'm', 'a', 's', 'á/a', 'a', 'k', 'a']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-8_bite-3          </td><td>nuamíadaca       </td><td>nuamíadaka       </td><td>['n', 'u', 'a', 'm', 'í/i', 'a', 'd', 'a', 'k', 'a']                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-8_bite-4          </td><td>yaamíaca         </td><td>jaamíaka         </td><td>['j', 'aa', 'm', 'í/i', 'a', 'k', 'a']                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-8_bite-5          </td><td>yúucaca          </td><td>júukaka          </td><td>['j', 'ú/u', 'u', 'k', 'a', 'k', 'a']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-8_bite-1         </td><td>-emú             </td><td>-emú             </td><td>['e', 'm', 'ú/u']                                                            </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-8_bite-1           </td><td>ajma'akaje       </td><td>ahmaʔakahe       </td><td>['a', 'h', 'm', 'a', 'ʔ', 'a', 'k', 'a', 'h', 'e']                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-9_black-1         </td><td>katʃáhulailau    </td><td>katʃahulailau    </td><td>['k', 'a', 'tʃ', 'a', 'h', 'u', 'l', 'a', 'i', 'l', 'a', 'u']                </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-9_black-1          </td><td>íitta            </td><td>íitta            </td><td>['í/i', 'i', 'tt', 'a']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-9_black-1        </td><td>kewere-ri        </td><td>kewere-ri        </td><td>['k', 'e', 'w', 'e', 'r', 'e', 'r', 'i']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-9_black-1         </td><td>cúulíiri         </td><td>kú:lí:ɾi         </td><td>['k', 'ú:/uː', 'l', 'í:/iː', 'ɾ', 'i']                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-9_black-1        </td><td>tsaphó?          </td><td>tsaphó?          </td><td>['ts', 'a', 'pʰ', 'ó/o', 'ʔ']                                                </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-9_black-1          </td><td>kameni           </td><td>kameni           </td><td>['k', 'a', 'm', 'e', 'n', 'i']                                               </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-10_blood-1        </td><td>íirai            </td><td>iirai            </td><td>['ii', 'r', 'a', 'i']                                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-10_blood-1         </td><td>-iiranaa         </td><td>-iiranaa         </td><td>['ii', 'r', 'a', 'n', 'aa']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-10_blood-1       </td><td>íʔira            </td><td>íʔira            </td><td>['í/i', 'ʔ', 'i', 'r', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-10_blood-1        </td><td>irái             </td><td>iɾái             </td><td>['i', 'ɾ', 'á/a', 'i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-10_blood-1       </td><td>-iidú            </td><td>-iidú            </td><td>['ii', 'd', 'ú/u']                                                           </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-10_blood-1         </td><td>íraji            </td><td>íɾahi            </td><td>['í/i', 'ɾ', 'a', 'h', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-10_blood-2         </td><td>jirá             </td><td>hiɾá             </td><td>['h', 'i', 'ɾ', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-11_bone-1         </td><td>jáhiʃi           </td><td>jahiʃi           </td><td>['j', 'a', 'h', 'i', 'ʃ', 'i']                                               </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-11_bone-1          </td><td>-áapi            </td><td>-áapi            </td><td>['á/a', 'a', 'p', 'i']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-11_bone-1        </td><td>japi             </td><td>japi             </td><td>['j', 'a', 'p', 'i']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-11_bone-1         </td><td>api              </td><td>api              </td><td>['a', 'p', 'i']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-11_bone-1        </td><td>aápí             </td><td>aápí             </td><td>['a', 'á/a', 'p', 'í/i']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-11_bone-1          </td><td>aphinámiji       </td><td>apʰinámihi       </td><td>['a', 'pʰ', 'i', 'n', 'á/a', 'm', 'i', 'h', 'i']                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Baniwa-12_breast1-1       </td><td>-íini            </td><td>-íini            </td><td>['í/i', 'i', 'n', 'i']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-12_breast1-1      </td><td>ìni              </td><td>ìni              </td><td>['ì/i', 'n', 'i']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-13_breast2-1      </td><td>kútaʃi           </td><td>kutaʃi           </td><td>['k', 'u', 't', 'a', 'ʃ', 'i']                                               </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Kabiyari-13_breast2-1     </td><td>ji               </td><td>ji               </td><td>['j', 'i']                                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-13_breast2-2     </td><td>ukhu(ta)         </td><td>ukhu(ta)         </td><td>['u', 'kʰ', 'u', 't', 'a']                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-13_breast2-1      </td><td>ucuta            </td><td>ukuta            </td><td>['u', 'k', 'u', 't', 'a']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-13_breast2-1     </td><td>ó?kótáapígú      </td><td>óʔkótáapígú      </td><td>['ó/o', 'ʔ', 'k', 'ó/o', 't', 'á/a', 'a', 'p', 'í/i', 'g', 'ú/u']            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-13_breast2-1       </td><td>chu'uchú         </td><td>tʃuʔutʃú         </td><td>['tʃ', 'u', 'ʔ', 'u', 'tʃ', 'ú/u']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Baniwa-14_burn1-1         </td><td>-haaka           </td><td>-haaka           </td><td>['h', 'aa', 'k', 'a']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Yukuna-14_burn1-1         </td><td>kára'akaje       </td><td>káraʔakahe       </td><td>['k', 'á/a', 'r', 'a', 'ʔ', 'a', 'k', 'a', 'h', 'e']                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-15_burn2-1        </td><td>éemairi          </td><td>e:mairi          </td><td>['e:', 'm', 'a', 'i', 'r', 'i']                                              </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-15_burn2-1         </td><td>-ma              </td><td>-ma              </td><td>['m', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-15_burn2-1       </td><td>kahema           </td><td>kahema           </td><td>['k', 'a', 'h', 'e', 'm', 'a']                                               </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-15_burn2-2       </td><td>heema            </td><td>heema            </td><td>['h', 'ee', 'm', 'a']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-15_burn2-1        </td><td>emáca            </td><td>emáka            </td><td>['e', 'm', 'á/a', 'k', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-15_burn2-1       </td><td>hoo-khú          </td><td>hoo-kʰú          </td><td>['h', 'oo', 'kʰ', 'ú/u']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-15_burn2-1       </td><td>méniketa         </td><td>méniketa         </td><td>['m', 'é/e', 'n', 'i', 'k', 'e', 't', 'a']                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-16_claw-1         </td><td>júbawiaʃi        </td><td>jubawiaʃi        </td><td>['j', 'u', 'b', 'a', 'w', 'i', 'a', 'ʃ', 'i']                                </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-16_claw-1          </td><td>-tsóta           </td><td>-tsóta           </td><td>['ts', 'ó/o', 't', 'a']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-16_claw-1        </td><td>u'upa            </td><td>uʔupa            </td><td>['u', 'ʔ', 'u', 'p', 'a']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-16_claw-1         </td><td>yúuba            </td><td>yúuba            </td><td>['y', 'ú/u', 'u', 'b', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-16_claw-2         </td><td>uba              </td><td>uba              </td><td>['u', 'b', 'a']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-16_claw-1        </td><td>hi?táví          </td><td>hiʔtáví          </td><td>['h', 'i', 'ʔ', 't', 'á/a', 'v', 'í/i']                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-16_claw-1          </td><td>u'upa            </td><td>uʔupa            </td><td>['u', 'ʔ', 'u', 'p', 'a']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-17_cloud-1        </td><td>sáanai           </td><td>saanai           </td><td>['s', 'aa', 'n', 'a', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-17_cloud-1         </td><td>eenótona         </td><td>eenótona         </td><td>['ee', 'n', 'ó/o', 't', 'o', 'n', 'a']                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-17_cloud-2         </td><td>idzadawäka       </td><td>idzadawäka       </td><td>['i', 'dz', 'a', 'd', 'a', 'w', 'a', 'k', 'a']                               </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-17_cloud-1        </td><td>acalèe           </td><td>akalèe           </td><td>['a', 'k', 'a', 'l', 'è/e', 'e']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-17_cloud-1       </td><td>iítshú           </td><td>iítshú           </td><td>['i', 'í/i', 'tsʰ', 'ú/u']                                                   </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-17_cloud-1         </td><td>[juni] juwáka'ala</td><td>[huni] huwákaʔala</td><td>['h', 'u', 'n', 'i', '+', 'h', 'u', 'w', 'á/a', 'k', 'a', 'ʔ', 'a', 'l', 'a']</td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-18_cold-1         </td><td>kasáIinii        </td><td>kasalini:        </td><td>['k', 'a', 's', 'a', 'l', 'i', 'n', 'i:']                                    </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-18_cold-1          </td><td>hápe             </td><td>hápe             </td><td>['h', 'á/a', 'p', 'e']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-18_cold-1        </td><td>peʔe             </td><td>peʔe             </td><td>['p', 'e', 'ʔ', 'e']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-18_cold-1         </td><td>casalíníiri      </td><td>kasalíní:ɾi      </td><td>['k', 'a', 's', 'a', 'l', 'í/i', 'n', 'í:/iː', 'ɾ', 'i']                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-18_cold-1        </td><td>hi?píí?          </td><td>hiʔpííʔ          </td><td>['h', 'i', 'ʔ', 'p', 'íí/iː', 'ʔ']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-18_cold-2        </td><td>taa              </td><td>taa              </td><td>['t', 'aa']                                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-18_cold-1          </td><td>ipe'ení          </td><td>ipeʔení          </td><td>['i', 'p', 'e', 'ʔ', 'e', 'n', 'í/i']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-19_come-1         </td><td>íinueri          </td><td>i:nueri          </td><td>['i:', 'n', 'u', 'e', 'r', 'i']                                              </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-19_come-1          </td><td>-no              </td><td>-no              </td><td>['n', 'o']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-19_come-1        </td><td>mira(a)ni        </td><td>mira(a)ni        </td><td>['m', 'i', 'r', 'a', 'a', 'n', 'i']                                          </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-19_come-2        </td><td>anaa             </td><td>anaa             </td><td>['a', 'n', 'aa']                                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-19_come-1         </td><td>nùacawa néese    </td><td>nùakawa néese    </td><td>['n', 'ù/u', 'a', 'k', 'a', 'w', 'a', '+', 'n', 'é/e', 'e', 's', 'e']        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-19_come-1        </td><td>tsa?nú           </td><td>tsaʔnú           </td><td>['ts', 'a', 'ʔ', 'n', 'ú/u']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-19_come-1          </td><td>iphakaje         </td><td>ipʰakahe         </td><td>['i', 'pʰ', 'a', 'k', 'a', 'h', 'e']                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-19_come-2          </td><td>waícha           </td><td>waítʃa           </td><td>['w', 'a', 'í/i', 'tʃ', 'a']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-19_come-1        </td><td>-wína            </td><td>-wína            </td><td>['w', 'í/i', 'n', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Warekena-19_come-2        </td><td>wádi!            </td><td>wádi!            </td><td>['w', 'á/a', 'd', 'i']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-20_die-1          </td><td>máanalii         </td><td>ma:nali:         </td><td>['m', 'a:', 'n', 'a', 'l', 'i:']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-20_die-1           </td><td>malíome          </td><td>malíome          </td><td>['m', 'a', 'l', 'í/i', 'o', 'm', 'e']                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-20_die-1         </td><td>mikuu            </td><td>mikuu            </td><td>['m', 'i', 'k', 'uu']                                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-20_die-1          </td><td>étácawa          </td><td>étákawa          </td><td>['é/e', 't', 'á/a', 'k', 'a', 'w', 'a']                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-20_die-1         </td><td>kainée- ǰú       </td><td>kainée- ǰú       </td><td>['k', 'a', 'i', 'n', 'é/e', 'e', '+', 'dʒ', 'ú/u']                           </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-20_die-1           </td><td>taka'akaje       </td><td>takaʔakahe       </td><td>['t', 'a', 'k', 'a', 'ʔ', 'a', 'k', 'a', 'h', 'e']                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-21_dog-1          </td><td>auli             </td><td>auli             </td><td>['a', 'u', 'l', 'i']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-21_dog-1           </td><td>tsiino           </td><td>tsiino           </td><td>['ts', 'ii', 'n', 'o']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-21_dog-1         </td><td>t∫aawi           </td><td>t∫aawi           </td><td>['t', 'ʃ', 'aa', 'w', 'i']                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-21_dog-1          </td><td>yàlidu           </td><td>jàlidu           </td><td>['j', 'à/a', 'l', 'i', 'd', 'u']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-21_dog-1         </td><td>íiní             </td><td>íiní             </td><td>['í/i', 'i', 'n', 'í/i']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-21_dog-1          </td><td>čínu             </td><td>tʃínu            </td><td>['tʃ', 'í/i', 'n', 'u']                                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-21_dog-1           </td><td>walú             </td><td>walú             </td><td>['w', 'a', 'l', 'ú/u']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-22_drink-1        </td><td>íireri           </td><td>i:reri           </td><td>['i:', 'r', 'e', 'r', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-22_drink-1         </td><td>-íira            </td><td>-íira            </td><td>['í/i', 'i', 'r', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-22_drink-1       </td><td>irá              </td><td>irá              </td><td>['i', 'r', 'á/a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-22_drink-1        </td><td>ìraca            </td><td>ìɾaka            </td><td>['ì/i', 'ɾ', 'a', 'k', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-22_drink-1       </td><td>i?dú             </td><td>i?dú             </td><td>['i', 'ʔ', 'd', 'ú/u']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-22_drink-1         </td><td>i'irakaje        </td><td>iʔiɾakahe        </td><td>['i', 'ʔ', 'i', 'ɾ', 'a', 'k', 'a', 'h', 'e']                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Baniwa-23_dryn-1          </td><td>-meettáta        </td><td>-meettáta        </td><td>['m', 'ee', 'tt', 'á/a', 't', 'a']                                           </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-23_dryn-1        </td><td>iwá              </td><td>iwá              </td><td>['i', 'w', 'á/a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-23_dryn-1         </td><td>chuìri           </td><td>tʃuìɾi           </td><td>['tʃ', 'u', 'ì/i', 'ɾ', 'i']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-23_dryn-1        </td><td>makádú           </td><td>makádú           </td><td>['m', 'a', 'k', 'á/a', 'd', 'ú/u']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-23_dryn-1          </td><td>makára'akaje     </td><td>makára'akaje     </td><td>['m', 'a', 'k', 'á/a', 'r', 'a', 'ʔ', 'a', 'k', 'a', 'j', 'e']               </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-24_ear-1          </td><td>wíbaʃi           </td><td>wibaʃi           </td><td>['w', 'i', 'b', 'a', 'ʃ', 'i']                                               </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-24_ear-1           </td><td>-heeni           </td><td>-heeni           </td><td>['h', 'ee', 'n', 'i']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-24_ear-2           </td><td>-hináko-liko     </td><td>-hináko-liko     </td><td>['h', 'i', 'n', 'á/a', 'k', 'o', 'l', 'i', 'k', 'o']                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-24_ear-1         </td><td>u'uwi            </td><td>uʔuwi            </td><td>['u', 'ʔ', 'u', 'w', 'i']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-24_ear-1          </td><td>uwi              </td><td>uwi              </td><td>['u', 'w', 'i']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-24_ear-1         </td><td>henákó           </td><td>henákó           </td><td>['h', 'e', 'n', 'á/a', 'k', 'ó/o']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-24_ear-1           </td><td>i'ijwijí         </td><td>iʔihwihí         </td><td>['i', 'ʔ', 'i', 'h', 'w', 'i', 'h', 'í/i']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-25_earth-1        </td><td>káinabi          </td><td>kainabi          </td><td>['k', 'a', 'i', 'n', 'a', 'b', 'i']                                          </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-25_earth-1         </td><td>híipai           </td><td>híipai           </td><td>['h', 'í/i', 'i', 'p', 'a', 'i']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-25_earth-1       </td><td>ta'ka(a)ri       </td><td>taʔka(a)ri       </td><td>['t', 'a', 'ʔ', 'k', 'a', 'a', 'r', 'i']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-25_earth-1        </td><td>cáli             </td><td>káli             </td><td>['k', 'á/a', 'l', 'i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-25_earth-1       </td><td>hihi             </td><td>hihi             </td><td>['h', 'i', 'h', 'i']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-25_earth-1         </td><td>te'erí           </td><td>teʔeɾí           </td><td>['t', 'e', 'ʔ', 'e', 'ɾ', 'í/i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-26_eat-1          </td><td>íijeri           </td><td>i:jeri           </td><td>['i:', 'j', 'e', 'r', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-26_eat-1           </td><td>-íiñha           </td><td>-íiñha           </td><td>['í/i', 'i', 'ɲ', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-26_eat-1         </td><td>tʃha             </td><td>tʃha             </td><td>['tʃʰ', 'a']                                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-26_eat-1          </td><td>yáaca            </td><td>já:ka            </td><td>['j', 'á:/aː', 'k', 'a']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-26_eat-1         </td><td>a?mitú           </td><td>a?mitú           </td><td>['a', 'ʔ', 'm', 'i', 't', 'ú/u']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-26_eat-1           </td><td>ajñakaje         </td><td>ahɲakahe         </td><td>['a', 'h', 'ɲ', 'a', 'k', 'a', 'h', 'e']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-27_egg-1          </td><td>éewiʃi           </td><td>eewiʃi           </td><td>['ee', 'w', 'i', 'ʃ', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-27_egg-1           </td><td>-éewhe           </td><td>-éewhe           </td><td>['é/e', 'e', 'w', 'h', 'e']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-27_egg-1         </td><td>éewhé            </td><td>éewhé            </td><td>['é/e', 'e', 'w', 'h', 'é/e']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-27_egg-1          </td><td>yéewési          </td><td>jé:wési          </td><td>['j', 'éː/eː', 'w', 'é/e', 's', 'i']                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-27_egg-1         </td><td>eévé(ú)          </td><td>eévé(ú)          </td><td>['e', 'é/e', 'v', 'é/e', 'ú/u']                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-27_egg-1           </td><td>ejweji           </td><td>ehwehi           </td><td>['e', 'h', 'w', 'e', 'h', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-28_eye-1          </td><td>túiʃi            </td><td>tuiʃi            </td><td>['t', 'u', 'i', 'ʃ', 'i']                                                    </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-28_eye-1           </td><td>-thi             </td><td>-thi             </td><td>['tʰ', 'i']                                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-28_eye-1         </td><td>thu              </td><td>thu              </td><td>['tʰ', 'u']                                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-28_eye-1          </td><td>tuí              </td><td>tuí              </td><td>['t', 'u', 'í/i']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-28_eye-1         </td><td>ijlují           </td><td>ihluhí           </td><td>['i', 'h', 'l', 'u', 'h', 'í/i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-28_eye-1           </td><td>ijlují           </td><td>ihluhí           </td><td>['i', 'h', 'l', 'u', 'h', 'í/i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-29_feather-1     </td><td>apána            </td><td>apána            </td><td>['a', 'p', 'á/a', 'n', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-29_feather-1      </td><td>báica            </td><td>báika            </td><td>['b', 'á/a', 'i', 'k', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-29_feather-1     </td><td>tsíináhí         </td><td>tsíináhí         </td><td>['ts', 'í/i', 'i', 'n', 'á/a', 'h', 'í/i']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-29_feather-1      </td><td>dí-ča            </td><td>dí-tʃa           </td><td>['d', 'í/i', 'tʃ', 'a']                                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-29_feather-2      </td><td>díča-ɾe          </td><td>dítʃa-ɾe         </td><td>['d', 'í/i', 'tʃ', 'a', 'ɾ', 'e']                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-29_feather-3      </td><td>daɾuphemá-ma     </td><td>daɾupʰemá-ma     </td><td>['d', 'a', 'ɾ', 'u', 'pʰ', 'e', 'm', 'á/a', 'm', 'a']                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-29_feather-1       </td><td>chijneji         </td><td>tʃihnehi         </td><td>['tʃ', 'i', 'h', 'n', 'e', 'h', 'i']                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-30_fire-1         </td><td>tʃitʃái          </td><td>tʃitʃai          </td><td>['tʃ', 'i', 'tʃ', 'a', 'i']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-30_fire-1          </td><td>ttídzee          </td><td>ttídzee          </td><td>['tt', 'í/i', 'dz', 'ee']                                                    </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-30_fire-1        </td><td>kira'ari         </td><td>kiraʔari         </td><td>['k', 'i', 'r', 'a', 'ʔ', 'a', 'r', 'i']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-30_fire-1         </td><td>quichái          </td><td>kitʃái           </td><td>['k', 'i', 'tʃ', 'á/a', 'i']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-30_fire-2         </td><td>síyái            </td><td>síjái            </td><td>['s', 'í/i', 'j', 'á/a', 'i']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-30_fire-1        </td><td>o?koná?          </td><td>oʔkonáʔ          </td><td>['o', 'ʔ', 'k', 'o', 'n', 'á/a', 'ʔ']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-30_fire-1          </td><td>jiyá             </td><td>hijá             </td><td>['h', 'i', 'j', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-30_fire-2          </td><td>kera'atani       </td><td>keɾaʔatani       </td><td>['k', 'e', 'ɾ', 'a', 'ʔ', 'a', 't', 'a', 'n', 'i']                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-31_fishn-1        </td><td>kubái            </td><td>kubai            </td><td>['k', 'u', 'b', 'a', 'i']                                                    </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-31_fishn-1         </td><td>kóphe            </td><td>kóphe            </td><td>['k', 'ó/o', 'pʰ', 'e']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-31_fishn-1       </td><td>kúpha            </td><td>ʔulle            </td><td>['ʔ', 'u', 'lː', 'e']                                                        </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Piapoco-31_fishn-1        </td><td>kubái            </td><td>kubái            </td><td>['k', 'u', 'b', 'á/a', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-31_fishn-1       </td><td>ámoogí           </td><td>ámoogí           </td><td>['á/a', 'm', 'oo', 'g', 'í/i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-31_fishn-1         </td><td>kúpe             </td><td>kúpe             </td><td>['k', 'ú/u', 'p', 'e']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-32_flesh-1        </td><td>íinaʃi           </td><td>i:naʃi           </td><td>['i:', 'n', 'a', 'ʃ', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-32_flesh-1         </td><td>-íipe            </td><td>-íipe            </td><td>['í/i', 'i', 'p', 'e']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-32_flesh-1       </td><td>?ii              </td><td>?ii              </td><td>['ʔ', 'ii']                                                                  </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Piapoco-32_flesh-1        </td><td>iinási           </td><td>iinási           </td><td>['ii', 'n', 'á/a', 's', 'i']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-32_flesh-1       </td><td>gí?í             </td><td>gí?í             </td><td>['g', 'í/i', 'ʔ', 'í/i']                                                     </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-32_flesh-1         </td><td>i'iji            </td><td>ri'í             </td><td>['r', 'i', 'ʔ', 'í/i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-33_flyv-1         </td><td>jáareriu         </td><td>ja:reriu         </td><td>['j', 'a:', 'r', 'e', 'r', 'i', 'u']                                         </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-33_flyv-1          </td><td>-áara            </td><td>-áara            </td><td>['á/a', 'a', 'r', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-33_flyv-1        </td><td>áara             </td><td>áara             </td><td>['á/a', 'a', 'r', 'a']                                                       </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Piapoco-33_flyv-1         </td><td>yálacawa         </td><td>jálakawa         </td><td>['j', 'á/a', 'l', 'a', 'k', 'a', 'w', 'a']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-33_flyv-1        </td><td>adú              </td><td>adú              </td><td>['a', 'd', 'ú/u']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-33_flyv-1          </td><td>ajrakaje         </td><td>ahɾakahe         </td><td>['a', 'h', 'ɾ', 'a', 'k', 'a', 'h', 'e']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-34_foot-1         </td><td>íibaʃi           </td><td>i:baʃi           </td><td>['i:', 'b', 'a', 'ʃ', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-34_foot-1          </td><td>-híipa           </td><td>-híipa           </td><td>['h', 'í/i', 'i', 'p', 'a']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-34_foot-1        </td><td>híipa            </td><td>híipa            </td><td>['h', 'í/i', 'i', 'p', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-34_foot-1         </td><td>abàli            </td><td>abàli            </td><td>['a', 'b', 'à/a', 'l', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-34_foot-1        </td><td>hii?pú           </td><td>hiiʔpú           </td><td>['h', 'ii', 'ʔ', 'p', 'ú/u']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-34_foot-1          </td><td>ji'imaji         </td><td>hiʔimahi         </td><td>['h', 'i', 'ʔ', 'i', 'm', 'a', 'h', 'i']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-35_full-1         </td><td>káawai           </td><td>ka:wai           </td><td>['k', 'a:', 'w', 'a', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-35_full-1          </td><td>pákhame(i)       </td><td>pákhame(i)       </td><td>['p', 'á/a', 'kʰ', 'a', 'm', 'e', 'i']                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-35_full-1        </td><td>manu'            </td><td>manu'            </td><td>['m', 'a', 'n', 'u', 'ʔ']                                                    </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-35_full-2        </td><td>miyana           </td><td>miyana           </td><td>['m', 'i', 'y', 'a', 'n', 'a']                                               </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Resigaro-35_full-1        </td><td>potsʰí?mó        </td><td>potsʰí?mó        </td><td>['p', 'o', 'tsʰ', 'í/i', 'ʔ', 'm', 'ó/o']                                    </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-35_full-1          </td><td>mano'okaje       </td><td>mano'okaje       </td><td>['m', 'a', 'n', 'o', 'ʔ', 'o', 'k', 'a', 'j', 'e']                           </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-36_give-1         </td><td>jáairi           </td><td>jaairi           </td><td>['j', 'aa', 'i', 'r', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-36_give-1          </td><td>-áa              </td><td>-áa              </td><td>['á/a', 'a']                                                                 </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-36_give-1        </td><td>-aa              </td><td>-aa              </td><td>['aa']                                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Resigaro-36_give-1        </td><td>-aa?ní           </td><td>-aa?ní           </td><td>['aa', 'ʔ', 'n', 'í/i']                                                      </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-36_give-1          </td><td>a'akaje          </td><td>a'akaje          </td><td>['a', 'ʔ', 'a', 'k', 'a', 'j', 'e']                                          </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Warekena-36_give-1        </td><td>-huwa            </td><td>-huwa            </td><td>['h', 'u', 'w', 'a']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-37_good-1         </td><td>sáika            </td><td>saika            </td><td>['s', 'a', 'i', 'k', 'a']                                                    </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-37_good-1          </td><td>mátsia           </td><td>mátsia           </td><td>['m', 'á/a', 'ts', 'i', 'a']                                                 </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-37_good-1        </td><td>tʃuni-ka         </td><td>tʃuni-ka         </td><td>['tʃ', 'u', 'n', 'i', 'k', 'a']                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-37_good-1         </td><td>cayábéeri        </td><td>kajábé:ɾi        </td><td>['k', 'a', 'j', 'á/a', 'b', 'é:/eː', 'ɾ', 'i']                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-37_good-1        </td><td>kaŝó?            </td><td>kaʃóʔ            </td><td>['k', 'a', 'ʃ', 'ó/o', 'ʔ']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-37_good-1          </td><td>palani           </td><td>palani           </td><td>['p', 'a', 'l', 'a', 'n', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-38_grease-1       </td><td>júuwika          </td><td>juuwika          </td><td>['j', 'uu', 'w', 'i', 'k', 'a']                                              </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-38_grease-1        </td><td>íitti            </td><td>íitti            </td><td>['í/i', 'i', 'tt', 'i']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-38_grease-1      </td><td>íʔit̪i            </td><td>íʔit̪i            </td><td>['í/i', 'ʔ', 'i', 't̪', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-38_grease-1       </td><td>iséená           </td><td>isé:ná           </td><td>['i', 's', 'é:/eː', 'n', 'á/a']                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-38_grease-1      </td><td>phedee?kátasí    </td><td>phedee?kátasí    </td><td>['pʰ', 'e', 'd', 'ee', 'ʔ', 'k', 'á/a', 't', 'a', 's', 'í/i']                </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-38_grease-1        </td><td>jilaji           </td><td>hilahi           </td><td>['h', 'i', 'l', 'a', 'h', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-39_green-1        </td><td>uléejii          </td><td>ule:ji           </td><td>['u', 'l', 'e:', 'j', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-39_green-1         </td><td>hípole           </td><td>hípole           </td><td>['h', 'í/i', 'p', 'o', 'l', 'e']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-39_green-1       </td><td>puré             </td><td>puré             </td><td>['p', 'u', 'r', 'é/e']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-39_green-1        </td><td>ipùléeri         </td><td>ipùlé:ɾi         </td><td>['i', 'p', 'ù/u', 'l', 'é:/eː', 'ɾ', 'i']                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-39_green-1       </td><td>ipogí?           </td><td>ipogí?           </td><td>['i', 'p', 'o', 'g', 'í/i', 'ʔ']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-39_green-1         </td><td>ipureni          </td><td>ipuɾeni          </td><td>['i', 'p', 'u', 'ɾ', 'e', 'n', 'i']                                          </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-40_hair-1         </td><td>báinaʃi          </td><td>bainaʃi          </td><td>['b', 'a', 'i', 'n', 'a', 'ʃ', 'i']                                          </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-40_hair-1          </td><td>-tsíkole         </td><td>-tsíkole         </td><td>['ts', 'í/i', 'k', 'o', 'l', 'e']                                            </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-40_hair-1        </td><td>tʃuna            </td><td>tʃuna            </td><td>['tʃ', 'u', 'n', 'a']                                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-40_hair-1         </td><td>ichùna           </td><td>itʃùna           </td><td>['i', 'tʃ', 'ù/u', 'n', 'a']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-40_hair-1        </td><td>híve?áǰii?ó      </td><td>híveʔádʒiiʔó     </td><td>['h', 'í/i', 'v', 'e', 'ʔ', 'á/a', 'dʒ', 'ii', 'ʔ', 'ó/o']                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-40_hair-1          </td><td>wilaji           </td><td>wilahi           </td><td>['w', 'i', 'l', 'a', 'h', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-41_hand-1         </td><td>káhiʃi           </td><td>kahiʃi           </td><td>['k', 'a', 'h', 'i', 'ʃ', 'i']                                               </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-41_hand-1          </td><td>-káapi           </td><td>-káapi           </td><td>['k', 'á/a', 'a', 'p', 'i']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-41_hand-1        </td><td>kaapi            </td><td>kaapi            </td><td>['k', 'aa', 'p', 'i']                                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-41_hand-1         </td><td>cáapi            </td><td>ká:pi            </td><td>['k', 'á:/aː', 'p', 'i']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-41_hand-1        </td><td>-ké              </td><td>-ké              </td><td>['k', 'é/e']                                                                 </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-41_hand-1          </td><td>yáte'elaji       </td><td>játeʔelahi       </td><td>['j', 'á/a', 't', 'e', 'ʔ', 'e', 'l', 'a', 'h', 'i']                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-42_head-1         </td><td>wítaʃi           </td><td>witaʃi           </td><td>['w', 'i', 't', 'a', 'ʃ', 'i']                                               </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-42_head-1          </td><td>-hiwída          </td><td>-hiwída          </td><td>['h', 'i', 'w', 'í/i', 'd', 'a']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-42_head-1        </td><td>hiwíta           </td><td>hiwíta           </td><td>['h', 'i', 'w', 'í/i', 't', 'a']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-42_head-1         </td><td>[nu]iwita        </td><td>[nu]iwita        </td><td>['n', 'u', 'i', 'w', 'i', 't', 'a']                                          </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-42_head-1        </td><td>híveú            </td><td>híveú            </td><td>['h', 'í/i', 'v', 'e', 'ú/u']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-42_head-1          </td><td>wíla'aruji       </td><td>wílaʔaɾuhi       </td><td>['w', 'í/i', 'l', 'a', 'ʔ', 'a', 'ɾ', 'u', 'h', 'i']                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-43_hear-1         </td><td>éemeri           </td><td>e:meri           </td><td>['e:', 'm', 'e', 'r', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-43_hear-1          </td><td>-hima            </td><td>-hima            </td><td>['h', 'i', 'm', 'a']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-43_hear-2          </td><td>-himeeta         </td><td>-himeeta         </td><td>['h', 'i', 'm', 'ee', 't', 'a']                                              </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-43_hear-1        </td><td>heme             </td><td>heme             </td><td>['h', 'e', 'm', 'e']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-43_hear-1         </td><td>émìaca           </td><td>émìaka           </td><td>['é/e', 'm', 'ì/i', 'a', 'k', 'a']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-43_hear-1        </td><td>hé?mú            </td><td>hé?mú            </td><td>['h', 'é/e', 'ʔ', 'm', 'ú/u']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-43_hear-1         </td><td>-híma            </td><td>-híma            </td><td>['h', 'í/i', 'm', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Yukuna-43_hear-1          </td><td>jema'akaje       </td><td>hemaʔakahe       </td><td>['h', 'e', 'm', 'a', 'ʔ', 'a', 'k', 'a', 'h', 'e']                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-44_heart-1        </td><td>wówaʃi           </td><td>wowaʃi           </td><td>['w', 'o', 'w', 'a', 'ʃ', 'i']                                               </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-44_heart-1         </td><td>-kaale           </td><td>-kaale           </td><td>['k', 'aa', 'l', 'e']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-44_heart-1       </td><td>kareta           </td><td>kareta           </td><td>['k', 'a', 'r', 'e', 't', 'a']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-44_heart-1        </td><td>nu-wàwa          </td><td>nu-wàwa          </td><td>['n', 'u', 'w', 'à/a', 'w', 'a']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-44_heart-2        </td><td>íiricu           </td><td>í:ɾiku           </td><td>['í:/iː', 'ɾ', 'i', 'k', 'u']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-44_heart-1       </td><td>váfoú            </td><td>váfoú            </td><td>['v', 'á/a', 'f', 'o', 'ú/u']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-44_heart-1         </td><td>wajweji          </td><td>wahwehi          </td><td>['w', 'a', 'h', 'w', 'e', 'h', 'i']                                          </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-45_horn-1         </td><td>tʃáalaʃi         </td><td>tʃa:laʃi         </td><td>['tʃ', 'a:', 'l', 'a', 'ʃ', 'i']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-45_horn-1          </td><td>-tsówa           </td><td>-tsówa           </td><td>['ts', 'ó/o', 'w', 'a']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-45_horn-1        </td><td>nuire            </td><td>nuire            </td><td>['n', 'u', 'i', 'r', 'e']                                                    </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Resigaro-45_horn-1        </td><td>-iijβií          </td><td>-iijβií          </td><td>['ii', 'j', 'β', 'i', 'í/i']                                                 </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-45_horn-1          </td><td>i'iwáwiji        </td><td>ri'iwawi         </td><td>['r', 'i', 'ʔ', 'i', 'w', 'a', 'w', 'i']                                     </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-46_hot-1          </td><td>amuái            </td><td>amuai            </td><td>['a', 'm', 'u', 'a', 'i']                                                    </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-46_hot-1           </td><td>hámo             </td><td>hámo             </td><td>['h', 'á/a', 'm', 'o']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-46_hot-1         </td><td>muʔú             </td><td>muʔú             </td><td>['m', 'u', 'ʔ', 'ú/u']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-46_hot-1          </td><td>ùuléeri          </td><td>ùulé:ɾi          </td><td>['ù/u', 'u', 'l', 'é:/eː', 'ɾ', 'i']                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-46_hot-1         </td><td>ha?mo?           </td><td>ha?mo?           </td><td>['h', 'a', 'ʔ', 'm', 'o', 'ʔ']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-46_hot-1           </td><td>ima'aní          </td><td>ima'aní          </td><td>['i', 'm', 'a', 'ʔ', 'a', 'n', 'í/i']                                        </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-47_kill-1         </td><td>íinueri          </td><td>i:nueri          </td><td>['i:', 'n', 'u', 'e', 'r', 'i']                                              </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-47_kill-1          </td><td>-íinoa           </td><td>-íinoa           </td><td>['í/i', 'i', 'n', 'o', 'a']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-47_kill-1        </td><td>nua              </td><td>nua              </td><td>['n', 'u', 'a']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-47_kill-1         </td><td>étáidaca         </td><td>étáidaka         </td><td>['é/e', 't', 'á/a', 'i', 'd', 'a', 'k', 'a']                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-47_kill-2         </td><td>nuáca            </td><td>nuáka            </td><td>['n', 'u', 'á/a', 'k', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-47_kill-1        </td><td>kainée-khú       </td><td>kainée-kʰú       </td><td>['k', 'a', 'i', 'n', 'é/e', 'e', 'kʰ', 'ú/u']                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-47_kill-2        </td><td>mótshó           </td><td>mótsʰó           </td><td>['m', 'ó/o', 'tsʰ', 'ó/o']                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-47_kill-1          </td><td>nókaje           </td><td>nókahe           </td><td>['n', 'ó/o', 'k', 'a', 'h', 'e']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-48_knee-1         </td><td>júruiʃi          </td><td>juruiʃi          </td><td>['j', 'u', 'r', 'u', 'i', 'ʃ', 'i']                                          </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-48_knee-1          </td><td>-hóorhi          </td><td>-hóorhi          </td><td>['h', 'ó/o', 'o', 'rʰ', 'i']                                                 </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-48_knee-1        </td><td>-urhu(na)        </td><td>-urhu(na)        </td><td>['u', 'rʰ', 'u', 'n', 'a']                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-48_knee-2        </td><td>-huru            </td><td>-huru            </td><td>['h', 'u', 'r', 'u']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Resigaro-48_knee-1        </td><td>-ho?dónaú        </td><td>-ho?dónaú        </td><td>['h', 'o', 'ʔ', 'd', 'ó/o', 'n', 'a', 'ú/u']                                 </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-48_knee-1          </td><td>i'irúpachiji     </td><td>ri'irúpachi      </td><td>['r', 'i', 'ʔ', 'i', 'r', 'ú/u', 'p', 'a', 'ʃ', 'i']                         </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-49_know-1         </td><td>éeweri           </td><td>e:weri           </td><td>['e:', 'w', 'e', 'r', 'i']                                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Achagua-49_know-2         </td><td>jaléenaa         </td><td>jale:na:         </td><td>['j', 'a', 'l', 'e:', 'n', 'a:']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-49_know-1          </td><td>-áanhee          </td><td>-áanhee          </td><td>['á/a', 'a', 'ɲ', 'ee']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-49_know-1        </td><td>aranhú           </td><td>aranhú           </td><td>['a', 'r', 'a', 'ɲ', 'ú/u']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-49_know-1         </td><td>alíacawa         </td><td>alíakawa         </td><td>['a', 'l', 'í/i', 'a', 'k', 'a', 'w', 'a']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-49_know-1        </td><td>-manaá-tó?       </td><td>-manaá-tó?       </td><td>['m', 'a', 'n', 'a', 'á/a', 't', 'ó/o', 'ʔ']                                 </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-49_know-1          </td><td>we'epíkaje       </td><td>weʔepíkahe       </td><td>['w', 'e', 'ʔ', 'e', 'p', 'í/i', 'k', 'a', 'h', 'e']                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-50_leaf-1         </td><td>bánabai          </td><td>banabai          </td><td>['b', 'a', 'n', 'a', 'b', 'a', 'i']                                          </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-50_leaf-1          </td><td>panaphe          </td><td>panaphe          </td><td>['p', 'a', 'n', 'a', 'pʰ', 'e']                                              </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-50_leaf-2          </td><td>-phe             </td><td>-phe             </td><td>['pʰ', 'e']                                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-50_leaf-1        </td><td>apana            </td><td>apana            </td><td>['a', 'p', 'a', 'n', 'a']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-50_leaf-1         </td><td>ibáiná           </td><td>ibáiná           </td><td>['i', 'b', 'á/a', 'i', 'n', 'á/a']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-50_leaf-1        </td><td>apáná?aamí       </td><td>apánáʔaamí       </td><td>['a', 'p', 'á/a', 'n', 'á/a', 'ʔ', 'aa', 'm', 'í/i']                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-50_leaf-1          </td><td>wíchu'upe        </td><td>wíchu'upe        </td><td>['w', 'í/i', 'ʃ', 'u', 'ʔ', 'u', 'p', 'e']                                   </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Warekena-50_leaf-1        </td><td>-phe             </td><td>-phe             </td><td>['pʰ', 'e']                                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Warekena-50_leaf-2        </td><td>apanaphe         </td><td>apanaphe         </td><td>['a', 'p', 'a', 'n', 'a', 'pʰ', 'e']                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-51_lie-1          </td><td>kuániriu         </td><td>kuaniriu         </td><td>['k', 'u', 'a', 'n', 'i', 'r', 'i', 'u']                                     </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-51_lie-1           </td><td>-kua             </td><td>-kua             </td><td>['k', 'u', 'a']                                                              </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-51_lie-2           </td><td>-ɻhua            </td><td>-ɻhua            </td><td>['ɻ', 'h', 'u', 'a']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-51_lie-1         </td><td>-ku'apu          </td><td>-ku'apu          </td><td>['k', 'u', 'ʔ', 'a', 'p', 'u']                                               </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-51_lie-2         </td><td>-huapuku         </td><td>-huapuku         </td><td>['h', 'u', 'a', 'p', 'u', 'k', 'u']                                          </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Resigaro-51_lie-1         </td><td>šoóné-ǰú         </td><td>šoóné-ǰú         </td><td>['ʃ', 'o', 'ó/o', 'n', 'é/e', 'ʒ', 'ú/u']                                    </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Tariana-51_lie-1          </td><td>swá              </td><td>swá              </td><td>['s', 'w', 'á/a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-51_lie-1           </td><td>to'okajo         </td><td>to'okajo         </td><td>['t', 'o', 'ʔ', 'o', 'k', 'a', 'j', 'o']                                     </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-52_liver-1        </td><td>tʃáaliʃi         </td><td>tʃa:liʃi         </td><td>['tʃ', 'a:', 'l', 'i', 'ʃ', 'i']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-52_liver-1         </td><td>-xópana          </td><td>-xópana          </td><td>['ʃ', 'ó/o', 'p', 'a', 'n', 'a']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-52_liver-1       </td><td>úupana           </td><td>úupana           </td><td>['ú/u', 'u', 'p', 'a', 'n', 'a']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-52_liver-1        </td><td>ubana            </td><td>ubana            </td><td>['u', 'b', 'a', 'n', 'a']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-52_liver-1       </td><td>-opáanú          </td><td>-opáanú          </td><td>['o', 'p', 'á/a', 'a', 'n', 'ú/u']                                           </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-52_liver-1         </td><td>panaji           </td><td>panaji           </td><td>['p', 'a', 'n', 'a', 'j', 'i']                                               </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-53_long-1         </td><td>matʃéenii        </td><td>matʃe:ni:        </td><td>['m', 'a', 'tʃ', 'e:', 'n', 'i:']                                            </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-53_long-1          </td><td>yápi             </td><td>yápi             </td><td>['y', 'á/a', 'p', 'i']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-53_long-1        </td><td>wia              </td><td>wia              </td><td>['w', 'i', 'a']                                                              </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-53_long-1         </td><td>cáaléeri         </td><td>káaléeri         </td><td>['k', 'á/a', 'a', 'l', 'é/e', 'e', 'r', 'i']                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-53_long-1        </td><td>tseinó?          </td><td>tseinó?          </td><td>['ts', 'e', 'i', 'n', 'ó/o', 'ʔ']                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-53_long-1          </td><td>waphereni        </td><td>waphereni        </td><td>['w', 'a', 'pʰ', 'e', 'r', 'e', 'n', 'i']                                    </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-54_louse-1        </td><td>witéneʃi         </td><td>witeneʃi         </td><td>['w', 'i', 't', 'e', 'n', 'e', 'ʃ', 'i']                                     </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-54_louse-1         </td><td>towída           </td><td>towída           </td><td>['t', 'o', 'w', 'í/i', 'd', 'a']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-54_louse-1       </td><td>nií              </td><td>nií              </td><td>['n', 'i', 'í/i']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-54_louse-1        </td><td>cùlibàu          </td><td>kùlibàu          </td><td>['k', 'ù/u', 'l', 'i', 'b', 'à/a', 'u']                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-54_louse-1       </td><td>netetshí?ó       </td><td>netetsʰíʔó       </td><td>['n', 'e', 't', 'e', 'tsʰ', 'í/i', 'ʔ', 'ó/o']                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-54_louse-1         </td><td>inejí            </td><td>rine             </td><td>['r', 'i', 'n', 'e']                                                         </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-55_manadultmale-1 </td><td>waʃiálikueri     </td><td>waʃialikueri     </td><td>['w', 'a', 'ʃ', 'i', 'a', 'l', 'i', 'k', 'u', 'e', 'r', 'i']                 </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-55_manadultmale-1  </td><td>atsíanli         </td><td>atsíanli         </td><td>['a', 'ts', 'í/i', 'a', 'n', 'l', 'i']                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-55_manadultmale-2  </td><td>newíki           </td><td>newíki           </td><td>['n', 'e', 'w', 'í/i', 'k', 'i']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-55_manadultmale-1</td><td>t̪ijá-ri          </td><td>t̪ijá-ri          </td><td>['t̪', 'i', 'j', 'á/a', 'r', 'i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-55_manadultmale-1</td><td>atsáagí          </td><td>atsáagí          </td><td>['a', 'ts', 'á/a', 'a', 'g', 'í/i']                                          </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-55_manadultmale-1  </td><td>achiñá           </td><td>atʃiɲá           </td><td>['a', 'tʃ', 'i', 'ɲ', 'á/a']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-56_many-1         </td><td>báhiala          </td><td>bahiala          </td><td>['b', 'a', 'h', 'i', 'a', 'l', 'a']                                          </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-56_many-1          </td><td>hanípa           </td><td>hanípa           </td><td>['h', 'a', 'n', 'í/i', 'p', 'a']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-56_many-2          </td><td>hóre             </td><td>hóre             </td><td>['h', 'ó/o', 'r', 'e']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-56_many-3          </td><td>manópe           </td><td>manópe           </td><td>['m', 'a', 'n', 'ó/o', 'p', 'e']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-56_many-1        </td><td>muura            </td><td>muura            </td><td>['m', 'uu', 'r', 'a']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-56_many-1         </td><td>kána(na)ma       </td><td>kána(na)ma       </td><td>['k', 'á/a', 'n', 'a', 'n', 'a', 'm', 'a']                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-56_many-2         </td><td>manuba           </td><td>manuba           </td><td>['m', 'a', 'n', 'u', 'b', 'a']                                               </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Piapoco-56_many-3         </td><td>maini            </td><td>maini            </td><td>['m', 'a', 'i', 'n', 'i']                                                    </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Resigaro-56_many-1        </td><td>an̥epúúʔ          </td><td>an̥epúúʔ          </td><td>['a', 'n̥', 'e', 'p', 'ú:/uː', 'ʔ']                                           </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-56_many-1          </td><td>cha'aphá         </td><td>cha'aphá         </td><td>['ʃ', 'a', 'ʔ', 'a', 'pʰ', 'á/a']                                            </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-57_moon-1         </td><td>kéeri            </td><td>ke:ri            </td><td>['k', 'e:', 'r', 'i']                                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-57_moon-1          </td><td>kéeri            </td><td>kéeri            </td><td>['k', 'é/e', 'e', 'r', 'i']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-57_moon-1        </td><td>kéeri            </td><td>kéeri            </td><td>['k', 'é/e', 'e', 'r', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-57_moon-1         </td><td>quéeri           </td><td>ké:ɾi            </td><td>['k', 'é:/eː', 'ɾ', 'i']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-57_moon-1        </td><td>keégí            </td><td>keégí            </td><td>['k', 'e', 'é/e', 'g', 'í/i']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-57_moon-1          </td><td>keri             </td><td>keɾi             </td><td>['k', 'e', 'ɾ', 'i']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-58_mountain-1     </td><td>dúuli            </td><td>dúuli            </td><td>['d', 'ú/u', 'u', 'l', 'i']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-58_mountain-1      </td><td>hidzápa          </td><td>hidzápa          </td><td>['h', 'i', 'dz', 'á/a', 'p', 'a']                                            </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-58_mountain-2      </td><td>híipana          </td><td>híipana          </td><td>['h', 'í/i', 'i', 'p', 'a', 'n', 'a']                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-58_mountain-1    </td><td>marena           </td><td>marena           </td><td>['m', 'a', 'r', 'e', 'n', 'a']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-58_mountain-2    </td><td>takari           </td><td>takari           </td><td>['t', 'a', 'k', 'a', 'r', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-58_mountain-1     </td><td>dúli             </td><td>dúli             </td><td>['d', 'ú/u', 'l', 'i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-58_mountain-1    </td><td>tégahú           </td><td>tégahú           </td><td>['t', 'é/e', 'g', 'a', 'h', 'ú/u']                                           </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Tariana-58_mountain-1     </td><td>maka-pulikúda    </td><td>maka-pulikúda    </td><td>['m', 'a', 'k', 'a', 'p', 'u', 'l', 'i', 'k', 'ú/u', 'd', 'a']               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-58_mountain-1      </td><td>yenuri           </td><td>jenuɾi           </td><td>['j', 'e', 'n', 'u', 'ɾ', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-58_mountain-1    </td><td>hidápa           </td><td>hidápa           </td><td>['h', 'i', 'd', 'á/a', 'p', 'a']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-59_mouth-1        </td><td>númaʃi           </td><td>numaʃi           </td><td>['n', 'u', 'm', 'a', 'ʃ', 'i']                                               </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-59_mouth-1         </td><td>-nóma            </td><td>-nóma            </td><td>['n', 'ó/o', 'm', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-59_mouth-1       </td><td>numa             </td><td>numa             </td><td>['n', 'u', 'm', 'a']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-59_mouth-1        </td><td>nùma             </td><td>nùma             </td><td>['n', 'ù/u', 'm', 'a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-59_mouth-1       </td><td>nó               </td><td>nó               </td><td>['n', 'ó/o']                                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-59_mouth-1         </td><td>numaji           </td><td>numahi           </td><td>['n', 'u', 'm', 'a', 'h', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-60_name-1         </td><td>hiʔinaʃi         </td><td>hiʔinaʃi         </td><td>['h', 'i', 'ʔ', 'i', 'n', 'a', 'ʃ', 'i']                                     </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-60_name-1          </td><td>-iipítana        </td><td>-iipítana        </td><td>['ii', 'p', 'í/i', 't', 'a', 'n', 'a']                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-60_name-1        </td><td>íí               </td><td>íí               </td><td>['íí/iː']                                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-60_name-1         </td><td>ípidená          </td><td>ípidená          </td><td>['í/i', 'p', 'i', 'd', 'e', 'n', 'á/a']                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-60_name-1        </td><td>iivú             </td><td>iivú             </td><td>['ii', 'v', 'ú/u']                                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-60_name-1          </td><td>iíji             </td><td>iíhi             </td><td>['i', 'í/i', 'h', 'i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-61_neck-1         </td><td>wáaʃi            </td><td>wa:ʃi            </td><td>['w', 'a:', 'ʃ', 'i']                                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-61_neck-1          </td><td>-nóoro           </td><td>-nóoro           </td><td>['n', 'ó/o', 'o', 'r', 'o']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-61_neck-1        </td><td>kanhapi          </td><td>kanhapi          </td><td>['k', 'a', 'ɲ', 'a', 'p', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-61_neck-1         </td><td>canápi           </td><td>kanápi           </td><td>['k', 'a', 'n', 'á/a', 'p', 'i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-61_neck-1        </td><td>-iñočhí          </td><td>-iñočhí          </td><td>['i', 'ñ', 'o', 'tʃʰ', 'í/i']                                                </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-61_neck-1          </td><td>núrupiji         </td><td>núrupihi         </td><td>['n', 'ú/u', 'r', 'u', 'p', 'i', 'h', 'i']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-62_new-1          </td><td>wáalii           </td><td>wa:li:           </td><td>['w', 'a:', 'l', 'i:']                                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-62_new-1           </td><td>éemi             </td><td>éemi             </td><td>['é/e', 'e', 'm', 'i']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-62_new-2           </td><td>wali-            </td><td>wali-            </td><td>['w', 'a', 'l', 'i']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-62_new-3           </td><td>yapiápali        </td><td>yapiápali        </td><td>['y', 'a', 'p', 'i', 'á/a', 'p', 'a', 'l', 'i']                              </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-62_new-1         </td><td>wárit̪é           </td><td>wárit̪é           </td><td>['w', 'á/a', 'r', 'i', 't̪', 'é/e']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-62_new-1          </td><td>wàlisàiri        </td><td>wàlisàiri        </td><td>['w', 'à/a', 'l', 'i', 's', 'à/a', 'i', 'r', 'i']                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-62_new-1         </td><td>be?é             </td><td>be?é             </td><td>['b', 'e', 'ʔ', 'é/e']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-62_new-1           </td><td>wajé             </td><td>wahé             </td><td>['w', 'a', 'h', 'é/e']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-63_night-1        </td><td>táaje            </td><td>ta:je            </td><td>['t', 'a:', 'j', 'e']                                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-63_night-1         </td><td>déepi            </td><td>déepi            </td><td>['d', 'é/e', 'e', 'p', 'i']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-63_night-1       </td><td>néápi            </td><td>néápi            </td><td>['n', 'é/e', 'á/a', 'p', 'i']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-63_night-1        </td><td>catá             </td><td>katá             </td><td>['k', 'a', 't', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-63_night-1       </td><td>naapí            </td><td>naapí            </td><td>['n', 'aa', 'p', 'í/i']                                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-63_night-1         </td><td>lapí             </td><td>lapí             </td><td>['l', 'a', 'p', 'í/i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-64_nose-1         </td><td>dákuʃi           </td><td>dakuʃi           </td><td>['d', 'a', 'k', 'u', 'ʃ', 'i']                                               </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-64_nose-1          </td><td>-hitáko          </td><td>-hitáko          </td><td>['h', 'i', 't', 'á/a', 'k', 'o']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-64_nose-1        </td><td>hitákú           </td><td>hitákú           </td><td>['h', 'i', 't', 'á/a', 'k', 'ú/u']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-64_nose-1         </td><td>ídacu            </td><td>ídaku            </td><td>['í/i', 'd', 'a', 'k', 'u']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-64_nose-1        </td><td>-hitákó          </td><td>-hitákó          </td><td>['h', 'i', 't', 'á/a', 'k', 'ó/o']                                           </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-64_nose-1          </td><td>takuji           </td><td>takuhi           </td><td>['t', 'a', 'k', 'u', 'h', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-65_not-1          </td><td>ma-              </td><td>ma-              </td><td>['m', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-65_not-2          </td><td>hookai           </td><td>hookai           </td><td>['h', 'oo', 'k', 'a', 'i']                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-65_not-1           </td><td>ma-              </td><td>ma-              </td><td>['m', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-65_not-2           </td><td>ñáme             </td><td>ñáme             </td><td>['ñ', 'á/a', 'm', 'e']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-65_not-1         </td><td>uka              </td><td>uka              </td><td>['u', 'k', 'a']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-65_not-1          </td><td>càmita           </td><td>kàmita           </td><td>['k', 'à/a', 'm', 'i', 't', 'a']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-65_not-1         </td><td>nii              </td><td>nii              </td><td>['n', 'ii']                                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Resigaro-65_not-2         </td><td>ma-              </td><td>ma-              </td><td>['m', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Tariana-65_not-1          </td><td>ma-              </td><td>ma-              </td><td>['m', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Yukuna-65_not-1           </td><td>unká             </td><td>unká             </td><td>['u', 'n', 'k', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-65_not-1         </td><td>ma-              </td><td>ma-              </td><td>['m', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Warekena-65_not-2         </td><td>nalé             </td><td>nalé             </td><td>['n', 'a', 'l', 'é/e']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-66_one-1          </td><td>áabai            </td><td>a:bai            </td><td>['a:', 'b', 'a', 'i']                                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-66_one-1           </td><td>a(a)pa-          </td><td>a(a)pa-          </td><td>['a', 'a', 'p', 'a']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-66_one-1         </td><td>pa[pu]           </td><td>pa[pu]           </td><td>['p', 'a', 'p', 'u']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-66_one-1          </td><td>ab[ì-]           </td><td>ab[ì-]           </td><td>['a', 'b', 'ì/i']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-66_one-2          </td><td>abe              </td><td>abe              </td><td>['a', 'b', 'e']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-66_one-1         </td><td>pa[topʰe]        </td><td>pa[topʰe]        </td><td>['p', 'a', 't', 'o', 'pʰ', 'e']                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-66_one-2         </td><td>sagú             </td><td>sagú             </td><td>['s', 'a', 'g', 'ú/u']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-66_one-1           </td><td>pajluwa          </td><td>pa(hluwáha)      </td><td>['p', 'a', 'h', 'l', 'u', 'w', 'á/a', 'h', 'a']                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-67_path-1         </td><td>iníhibaa         </td><td>inihiba:         </td><td>['i', 'n', 'i', 'h', 'i', 'b', 'a:']                                         </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-67_path-1          </td><td>inípo            </td><td>inípo            </td><td>['i', 'n', 'í/i', 'p', 'o']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-67_path-2          </td><td>-aapówa          </td><td>-aapówa          </td><td>['aa', 'p', 'ó/o', 'w', 'a']                                                 </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-67_path-3          </td><td>-aapowánaa       </td><td>-aapowánaa       </td><td>['aa', 'p', 'o', 'w', 'á/a', 'n', 'aa']                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-67_path-1        </td><td>apú-há           </td><td>apú-há           </td><td>['a', 'p', 'ú/u', 'h', 'á/a']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-67_path-2        </td><td>jóopu            </td><td>jóopu            </td><td>['j', 'ó/o', 'o', 'p', 'u']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-67_path-3        </td><td>ajápú            </td><td>ajápú            </td><td>['a', 'j', 'á/a', 'p', 'ú/u']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-67_path-1         </td><td>àyapu            </td><td>àjapu            </td><td>['à/a', 'j', 'a', 'p', 'u']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-67_path-1        </td><td>aǰápó            </td><td>adʒápó           </td><td>['a', 'dʒ', 'á/a', 'p', 'ó/o']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-67_path-2        </td><td>éhuúhí           </td><td>éhuúhí           </td><td>['é/e', 'h', 'u', 'ú/u', 'h', 'í/i']                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-67_path-1          </td><td>iñe'epú          </td><td>iñe'epú          </td><td>['i', 'ñ', 'e', 'ʔ', 'e', 'p', 'ú/u']                                        </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-68_person-1       </td><td>wenàiwica        </td><td>wenàiwika        </td><td>['w', 'e', 'n', 'à/a', 'i', 'w', 'i', 'k', 'a']                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Baniwa-68_person-1        </td><td>newíki           </td><td>newíki           </td><td>['n', 'e', 'w', 'í/i', 'k', 'i']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-68_person-1      </td><td>néki-ri          </td><td>néki-ɾi          </td><td>['n', 'é/e', 'k', 'i', 'ɾ', 'i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-68_person-1       </td><td>wenàiwica        </td><td>wenàiwika        </td><td>['w', 'e', 'n', 'à/a', 'i', 'w', 'i', 'k', 'a']                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-68_person-1      </td><td>ináavi?žaánigí   </td><td>ináaviʔʒaánigí   </td><td>['i', 'n', 'á/a', 'a', 'v', 'i', 'ʔ', 'ʒ', 'a', 'á/a', 'n', 'i', 'g', 'í/i'] </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-68_person-1        </td><td>ina'uké          </td><td>ina'uké          </td><td>['i', 'n', 'a', 'ʔ', 'u', 'k', 'é/e']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-69_rain-1         </td><td>júweriu          </td><td>júweriu          </td><td>['j', 'ú/u', 'w', 'e', 'r', 'i', 'u']                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-69_rain-1          </td><td>íidza            </td><td>íidza            </td><td>['í/i', 'i', 'dz', 'a']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-69_rain-1        </td><td>peʔekhe          </td><td>peʔekhe          </td><td>['p', 'e', 'ʔ', 'e', 'kʰ', 'e']                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-69_rain-2        </td><td>pehe             </td><td>pehe             </td><td>['p', 'e', 'h', 'e']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-69_rain-1         </td><td>unía             </td><td>unía             </td><td>['u', 'n', 'í/i', 'a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-69_rain-1        </td><td>fá?voótsí        </td><td>fá?voótsí        </td><td>['f', 'á/a', 'ʔ', 'v', 'o', 'ó/o', 'ts', 'í/i']                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-69_rain-1          </td><td>juni             </td><td>huni             </td><td>['h', 'u', 'n', 'i']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-70_red-1          </td><td>kírai            </td><td>kírai            </td><td>['k', 'í/i', 'r', 'a', 'i']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-70_red-1           </td><td>iirai            </td><td>iirai            </td><td>['ii', 'r', 'a', 'i']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-70_red-2           </td><td>kéerama          </td><td>kéerama          </td><td>['k', 'é/e', 'e', 'r', 'a', 'm', 'a']                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-70_red-1         </td><td>kíira            </td><td>kíira            </td><td>['k', 'í/i', 'i', 'r', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-70_red-1          </td><td>quíiraca         </td><td>kí:ɾaka          </td><td>['k', 'í:/iː', 'ɾ', 'a', 'k', 'a']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-70_red-1         </td><td>kedávií́?         </td><td>kedávií́ʔ         </td><td>['k', 'e', 'd', 'á/a', 'v', 'i', 'í/i', 'ʔ']                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-70_red-1           </td><td>kerani           </td><td>keɾani           </td><td>['k', 'e', 'ɾ', 'a', 'n', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-71_root-1         </td><td>híitʃuʃi         </td><td>híitʃuʃi         </td><td>['h', 'í/i', 'i', 'tʃ', 'u', 'ʃ', 'i']                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-71_root-1          </td><td>-pali            </td><td>-pali            </td><td>['p', 'a', 'l', 'i']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-71_root-1        </td><td>apáre            </td><td>apáre            </td><td>['a', 'p', 'á/a', 'r', 'e']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-71_root-1         </td><td>ipìchu           </td><td>ipìtʃu           </td><td>['i', 'p', 'ì/i', 'tʃ', 'u']                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-71_root-1        </td><td>tébaké           </td><td>tébaké           </td><td>['t', 'é/e', 'b', 'a', 'k', 'é/e']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-71_root-1          </td><td>ji'ilaji         </td><td>hiʔilahi         </td><td>['h', 'i', 'ʔ', 'i', 'l', 'a', 'h', 'i']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-71_root-1        </td><td>-ili             </td><td>-ili             </td><td>['i', 'l', 'i']                                                              </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-72_round-1        </td><td>maka             </td><td>maka             </td><td>['m', 'a', 'k', 'a']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-72_round-1         </td><td>madzakánhu       </td><td>madzakánhu       </td><td>['m', 'a', 'dz', 'a', 'k', 'á/a', 'ɲ', 'u']                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-72_round-1       </td><td>paβuudú          </td><td>paβuudú          </td><td>['p', 'a', 'β', 'uu', 'd', 'ú/u']                                            </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Resigaro-72_round-1       </td><td>pavuudu          </td><td>pavuudu          </td><td>['p', 'a', 'v', 'uu', 'd', 'u']                                              </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-73_sand-1         </td><td>káina            </td><td>káina            </td><td>['k', 'á/a', 'i', 'n', 'a']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-73_sand-1          </td><td>káida            </td><td>káida            </td><td>['k', 'á/a', 'i', 'd', 'a']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-73_sand-1        </td><td>káʔa             </td><td>káʔa             </td><td>['k', 'á/a', 'ʔ', 'a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-73_sand-1         </td><td>kai[na]          </td><td>kai[na]          </td><td>['k', 'a', 'i', 'n', 'a']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-73_sand-1        </td><td>meníigí          </td><td>meníigí          </td><td>['m', 'e', 'n', 'í/i', 'i', 'g', 'í/i']                                      </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-73_sand-1          </td><td>ke'epé           </td><td>keʔ-pé           </td><td>['k', 'e', 'ʔ', 'p', 'é/e']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-74_say-1          </td><td>máiri            </td><td>máiri            </td><td>['m', 'á/a', 'i', 'r', 'i']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-74_say-1           </td><td>-kaíte           </td><td>-kaíte           </td><td>['k', 'a', 'í/i', 't', 'e']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-74_say-1         </td><td>íma              </td><td>íma              </td><td>['í/i', 'm', 'a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-74_say-1          </td><td>íma              </td><td>íma              </td><td>['í/i', 'm', 'a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-74_say-1         </td><td>-kemú            </td><td>-kemú            </td><td>['k', 'e', 'm', 'ú/u']                                                       </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-74_say-1           </td><td>mí-              </td><td>mí-              </td><td>['m', 'í/i']                                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-74_say-1         </td><td>-máka            </td><td>-máka            </td><td>['m', 'á/a', 'k', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Warekena-74_say-2         </td><td>-kasaléta        </td><td>-kasaléta        </td><td>['k', 'a', 's', 'a', 'l', 'é/e', 't', 'a']                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-75_see-1          </td><td>káberi           </td><td>káberi           </td><td>['k', 'á/a', 'b', 'e', 'r', 'i']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-75_see-1           </td><td>-kápa            </td><td>-kápa            </td><td>['k', 'á/a', 'p', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-75_see-1         </td><td>ikhá             </td><td>ikhá             </td><td>['i', 'kʰ', 'á/a']                                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-75_see-1          </td><td>icáca            </td><td>ikáka            </td><td>['i', 'k', 'á/a', 'k', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-75_see-1         </td><td>-tshení          </td><td>-tshení          </td><td>['tsʰ', 'e', 'n', 'í/i']                                                     </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-75_see-1           </td><td>amákaje          </td><td>amákahe          </td><td>['a', 'm', 'á/a', 'k', 'a', 'h', 'e']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-76_seed-1         </td><td>íimiʃi           </td><td>íimiʃi           </td><td>['í/i', 'i', 'm', 'i', 'ʃ', 'i']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-76_seed-1          </td><td>-éekhe           </td><td>-éekhe           </td><td>['é/e', 'e', 'kʰ', 'e']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-76_seed-1        </td><td>(ka ka)kitjihe   </td><td>(ka ka)kitjihe   </td><td>['k', 'a', '+', 'k', 'a', 'k', 'i', 't', 'j', 'i', 'h', 'e']                 </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Resigaro-76_seed-1        </td><td>hímiú            </td><td>hímiú            </td><td>['h', 'í/i', 'm', 'i', 'ú/u']                                                </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-76_seed-1          </td><td>ijiji            </td><td>ijiji            </td><td>['i', 'j', 'i', 'j', 'i']                                                    </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Warekena-76_seed-1        </td><td>-ihina           </td><td>-ihina           </td><td>['i', 'h', 'i', 'n', 'a']                                                    </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-77_sit-1          </td><td>wáairiu          </td><td>wáairiu          </td><td>['w', 'á/a', 'a', 'i', 'r', 'i', 'u']                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-77_sit-1           </td><td>-oówhaa          </td><td>-oówhaa          </td><td>['o', 'ó/o', 'w', 'h', 'aa']                                                 </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-77_sit-1         </td><td>tu(')na          </td><td>tu(')na          </td><td>['t', 'u', 'ʔ', 'n', 'a']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-77_sit-1          </td><td>awinacawa        </td><td>awinakawa        </td><td>['a', 'w', 'i', 'n', 'a', 'k', 'a', 'w', 'a']                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-77_sit-1         </td><td>ítshú            </td><td>ítsʰú            </td><td>['í/i', 'tsʰ', 'ú/u']                                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-77_sit-2         </td><td>i?tsháká         </td><td>iʔtsʰáká         </td><td>['i', 'ʔ', 'tsʰ', 'á/a', 'k', 'á/a']                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-77_sit-1           </td><td>yá'akajo         </td><td>jáʔakaho         </td><td>['j', 'á/a', 'ʔ', 'a', 'k', 'a', 'h', 'o']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-77_sit-2           </td><td>yá'akaje         </td><td>yá'akaje         </td><td>['y', 'á/a', 'ʔ', 'a', 'k', 'a', 'j', 'e']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-78_skin-1         </td><td>íimanaʃi         </td><td>íimanaʃi         </td><td>['í/i', 'i', 'm', 'a', 'n', 'a', 'ʃ', 'i']                                   </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-78_skin-1          </td><td>-ya              </td><td>-ya              </td><td>['y', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-78_skin-1        </td><td>íʔa-mi           </td><td>íʔa-mi           </td><td>['í/i', 'ʔ', 'a', 'm', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-78_skin-1         </td><td>ímami            </td><td>ímami            </td><td>['í/i', 'm', 'a', 'm', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-78_skin-1        </td><td>eémú             </td><td>eémú             </td><td>['e', 'é/e', 'm', 'ú/u']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-78_skin-1          </td><td>ímaji            </td><td>ímahi            </td><td>['í/i', 'm', 'a', 'h', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-79_sleep-1        </td><td>máairi           </td><td>máairi           </td><td>['m', 'á/a', 'a', 'i', 'r', 'i']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-79_sleep-1         </td><td>-ímaa            </td><td>-ímaa            </td><td>['í/i', 'm', 'aa']                                                           </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-79_sleep-1       </td><td>imáa             </td><td>imáa             </td><td>['i', 'm', 'á/a', 'a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-79_sleep-1        </td><td>imáca            </td><td>imáka            </td><td>['i', 'm', 'á/a', 'k', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-79_sleep-1       </td><td>ímú              </td><td>ímú              </td><td>['í/i', 'm', 'ú/u']                                                          </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-79_sleep-1         </td><td>kamátakajo       </td><td>kamátakaho       </td><td>['k', 'a', 'm', 'á/a', 't', 'a', 'k', 'a', 'h', 'o']                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-80_small-1        </td><td>píituituu        </td><td>pi:tuitu:        </td><td>['p', 'i:', 't', 'u', 'i', 't', 'u:']                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-80_small-1         </td><td>tsúu             </td><td>tsúu             </td><td>['ts', 'ú/u', 'u']                                                           </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-80_small-1       </td><td>karitʃhũĩ        </td><td>karitʃhũĩ        </td><td>['k', 'a', 'r', 'i', 'tʃʰ', 'ũ', 'ĩ']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-80_small-1        </td><td>achúméeri        </td><td>atʃúmé:ɾi        </td><td>['a', 'tʃ', 'ú/u', 'm', 'é:/eː', 'ɾ', 'i']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-80_small-1       </td><td>karitʃhũĩ        </td><td>karitʃhũĩ        </td><td>['k', 'a', 'r', 'i', 'tʃʰ', 'ũ', 'ĩ']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-80_small-1         </td><td>kamu'ujini       </td><td>kamu'ujini       </td><td>['k', 'a', 'm', 'u', 'ʔ', 'u', 'j', 'i', 'n', 'i']                           </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-81_smoke-1        </td><td>íisaninaa        </td><td>íisaninaa        </td><td>['í/i', 'i', 's', 'a', 'n', 'i', 'n', 'aa']                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-81_smoke-1         </td><td>íitta            </td><td>íitta            </td><td>['í/i', 'i', 'tt', 'a']                                                      </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-81_smoke-1       </td><td>ít̪a-ri           </td><td>ít̪a-ri           </td><td>['í/i', 't̪', 'a', 'r', 'i']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-81_smoke-1       </td><td>iítshú           </td><td>iítsʰú           </td><td>['i', 'í/i', 'tsʰ', 'ú/u']                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-81_smoke-1         </td><td>ija              </td><td>iha              </td><td>['i', 'h', 'a']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-82_stand-1        </td><td>bárueriu         </td><td>barueriu         </td><td>['b', 'a', 'r', 'u', 'e', 'r', 'i', 'u']                                     </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-82_stand-1         </td><td>-éema            </td><td>-éema            </td><td>['é/e', 'e', 'm', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-82_stand-1       </td><td>patʃha           </td><td>patʃha           </td><td>['p', 'a', 'tʃʰ', 'a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-82_stand-1        </td><td>bàlùanícawa      </td><td>bàlùanícawa      </td><td>['b', 'à/a', 'l', 'ù/u', 'a', 'n', 'í/i', 'c', 'a', 'w', 'a']                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-82_stand-1       </td><td>-i?tóṇú          </td><td>-i?tóṇú          </td><td>['i', 'ʔ', 't', 'ó/o', 'ṇ', 'ú/u']                                           </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Yukuna-82_stand-1         </td><td>tára'akajo       </td><td>tára'akajo       </td><td>['t', 'á/a', 'r', 'a', 'ʔ', 'a', 'k', 'a', 'j', 'o']                         </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-83_star-1         </td><td>sáalii           </td><td>sáalii           </td><td>['s', 'á/a', 'a', 'l', 'ii']                                                 </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-83_star-1          </td><td>hiwírhi          </td><td>hiwírhi          </td><td>['h', 'i', 'w', 'í/i', 'rʰ', 'i']                                            </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-83_star-1        </td><td>wirínhu          </td><td>wirínhu          </td><td>['w', 'i', 'r', 'í/i', 'ɲ', 'u']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-83_star-1         </td><td>dùlupùta         </td><td>dùlupùta         </td><td>['d', 'ù/u', 'l', 'u', 'p', 'ù/u', 't', 'a']                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-83_star-1        </td><td>hivíigí          </td><td>hivíigí          </td><td>['h', 'i', 'v', 'í/i', 'i', 'g', 'í/i']                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-83_star-1          </td><td>iwijrí           </td><td>iwihɾí           </td><td>['i', 'w', 'i', 'h', 'ɾ', 'í/i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-84_stone-1        </td><td>íiba             </td><td>íiba             </td><td>['í/i', 'i', 'b', 'a']                                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-84_stone-1         </td><td>hiipada          </td><td>hiipada          </td><td>['h', 'ii', 'p', 'a', 'd', 'a']                                              </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-84_stone-1       </td><td>híipa            </td><td>híipa            </td><td>['h', 'í/i', 'i', 'p', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-84_stone-1        </td><td>íba              </td><td>íba              </td><td>['í/i', 'b', 'a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-84_stone-1       </td><td>vííši?óú         </td><td>vííši?óú         </td><td>['v', 'íí/iː', 'ʃ', 'i', 'ʔ', 'ó/o', 'ú/u']                                  </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-84_stone-1         </td><td>jipa             </td><td>hipa             </td><td>['h', 'i', 'p', 'a']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-85_sun-1          </td><td>káiwia           </td><td>káiwia           </td><td>['k', 'á/a', 'i', 'w', 'i', 'a']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-85_sun-1           </td><td>kámoi            </td><td>kámoi            </td><td>['k', 'á/a', 'm', 'o', 'i']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-85_sun-1         </td><td>abe              </td><td>abe              </td><td>['a', 'b', 'e']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-85_sun-2         </td><td>eri              </td><td>eri              </td><td>['e', 'r', 'i']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-85_sun-1          </td><td>èeri             </td><td>èeri             </td><td>['è/e', 'e', 'r', 'i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-85_sun-1         </td><td>há?í             </td><td>háʔí             </td><td>['h', 'á/a', 'ʔ', 'í/i']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-85_sun-1           </td><td>kamú             </td><td>kamú             </td><td>['k', 'a', 'm', 'ú/u']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-86_swim-1         </td><td>jámareriu        </td><td>jámareriu        </td><td>['j', 'á/a', 'm', 'a', 'r', 'e', 'r', 'i', 'u']                              </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-86_swim-1          </td><td>-aaxaa           </td><td>-aaxaa           </td><td>['aa', 'ʃ', 'aa']                                                            </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-86_swim-2          </td><td>-aanhi           </td><td>-aanhi           </td><td>['aa', 'ɲ', 'i']                                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-86_swim-1        </td><td>awápa            </td><td>awápa            </td><td>['a', 'w', 'á/a', 'p', 'a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-86_swim-1         </td><td>màlacawa         </td><td>màlakawa         </td><td>['m', 'à/a', 'l', 'a', 'k', 'a', 'w', 'a']                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-86_swim-1        </td><td>o?vápú           </td><td>oʔvápú           </td><td>['o', 'ʔ', 'v', 'á/a', 'p', 'ú/u']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-86_swim-1          </td><td>i'iwapakaje      </td><td>iʔiwapakahe      </td><td>['i', 'ʔ', 'i', 'w', 'a', 'p', 'a', 'k', 'a', 'h', 'e']                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-87_tail-1         </td><td>íiʃiʃi           </td><td>íiʃiʃi           </td><td>['í/i', 'i', 'ʃ', 'i', 'ʃ', 'i']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-87_tail-1          </td><td>-iittípi         </td><td>-iittípi         </td><td>['ii', 'tt', 'í/i', 'p', 'i']                                                </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-87_tail-1        </td><td>t̪ipi             </td><td>t̪ipi             </td><td>['t̪', 'i', 'p', 'i']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-87_tail-2        </td><td>muuku            </td><td>muuku            </td><td>['m', 'uu', 'k', 'u']                                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-87_tail-1         </td><td>yàapusài         </td><td>jàapusài         </td><td>['j', 'à/a', 'a', 'p', 'u', 's', 'à/a', 'i']                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-87_tail-1        </td><td>tshíipí          </td><td>tsʰíipí          </td><td>['tsʰ', 'í/i', 'i', 'p', 'í/i']                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-87_tail-1         </td><td>di-číma          </td><td>di-tʃíma         </td><td>['d', 'i', 'tʃ', 'í/i', 'm', 'a']                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-87_tail-2         </td><td>di-sipí          </td><td>di-sipí          </td><td>['d', 'i', 's', 'i', 'p', 'í/i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-87_tail-1          </td><td>jipiji           </td><td>hipihi           </td><td>['h', 'i', 'p', 'i', 'h', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-88_that-1         </td><td>liára            </td><td>liára            </td><td>['l', 'i', 'á/a', 'r', 'a']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Achagua-88_that-2         </td><td>ruára            </td><td>ruára            </td><td>['r', 'u', 'á/a', 'r', 'a']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-88_that-1          </td><td>lhiera(ha)       </td><td>lhiera(ha)       </td><td>['ʎ', 'i', 'e', 'r', 'a', 'h', 'a']                                          </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-88_that-1        </td><td>ja-ta            </td><td>ja-ta            </td><td>['j', 'a', 't', 'a']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-88_that-2        </td><td>ja-ra            </td><td>ja-ra            </td><td>['j', 'a', 'r', 'a']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-88_that-1         </td><td>yáara            </td><td>já:ɾa            </td><td>['j', 'á:/aː', 'ɾ', 'a']                                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-88_that-1        </td><td>aí               </td><td>aí               </td><td>['a', 'í/i']                                                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-88_that-1          </td><td>marí             </td><td>maɾí             </td><td>['m', 'a', 'ɾ', 'í/i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-88_that-1        </td><td>-la              </td><td>-la              </td><td>['l', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Warekena-88_that-2        </td><td>-di              </td><td>-di              </td><td>['d', 'i']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Warekena-88_that-3        </td><td>-ni              </td><td>-ni              </td><td>['n', 'i']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-89_this-1         </td><td>liáni            </td><td>liáni            </td><td>['l', 'i', 'á/a', 'n', 'i']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Achagua-89_this-2         </td><td>ruani            </td><td>ruani            </td><td>['r', 'u', 'a', 'n', 'i']                                                    </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Achagua-89_this-3         </td><td>náani            </td><td>náani            </td><td>['n', 'á/a', 'a', 'n', 'i']                                                  </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-89_this-1          </td><td>Ihíehe           </td><td>Ihíehe           </td><td>['ɪ', 'h', 'í/i', 'e', 'h', 'e']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-89_this-1        </td><td>do?ó             </td><td>do?ó             </td><td>['d', 'o', 'ʔ', 'ó/o']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-89_this-1         </td><td>yái              </td><td>jái              </td><td>['j', 'á/a', 'i']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-89_this-2         </td><td>úái              </td><td>úái              </td><td>['ú/u', 'á/a', 'i']                                                          </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-89_this-1        </td><td>gi?í             </td><td>gi?í             </td><td>['g', 'i', 'ʔ', 'í/i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-89_this-2        </td><td>do?ó             </td><td>doʔó             </td><td>['d', 'o', 'ʔ', 'ó/o']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-89_this-1         </td><td>hĩ               </td><td>hĩ               </td><td>['h', 'ĩ']                                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-89_this-1          </td><td>kele             </td><td>kele             </td><td>['k', 'e', 'l', 'e']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-89_this-1        </td><td>-ti              </td><td>-ti              </td><td>['t', 'i']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-90_thouyou-1      </td><td>ijá              </td><td>ijá              </td><td>['i', 'j', 'á/a']                                                            </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-90_thouyou-1       </td><td>hía              </td><td>hía              </td><td>['h', 'í/i', 'a']                                                            </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-90_thouyou-2       </td><td>você             </td><td>você             </td><td>['v', 'o', 'c', 'ê/e']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-90_thouyou-1     </td><td>phé              </td><td>phé              </td><td>['pʰ', 'é/e']                                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-90_thouyou-2     </td><td>pi-              </td><td>pi-              </td><td>['p', 'i']                                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-90_thouyou-1      </td><td>pía              </td><td>pía              </td><td>['p', 'í/i', 'a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-90_thouyou-1     </td><td>ha?              </td><td>haʔá             </td><td>['h', 'a', 'ʔ', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-90_thouyou-2     </td><td>phá              </td><td>pʰá              </td><td>['pʰ', 'á/a']                                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-90_thouyou-3     </td><td>phú              </td><td>pʰú              </td><td>['pʰ', 'ú/u']                                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-90_thouyou-1      </td><td>piha             </td><td>piha             </td><td>['p', 'i', 'h', 'a']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-90_thouyou-2      </td><td>piha             </td><td>pʰia             </td><td>['pʰ', 'i', 'a']                                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-90_thouyou-3      </td><td>iha              </td><td>iha              </td><td>['i', 'h', 'a']                                                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-90_thouyou-1       </td><td>iká              </td><td>iká              </td><td>['i', 'k', 'á/a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-90_thouyou-2       </td><td>piká             </td><td>piká             </td><td>['p', 'i', 'k', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-91_tongue-1       </td><td>ínaneeʃi         </td><td>ínaneeʃi         </td><td>['í/i', 'n', 'a', 'n', 'ee', 'ʃ', 'i']                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-91_tongue-1        </td><td>-eenene          </td><td>-eenene          </td><td>['ee', 'n', 'e', 'n', 'e']                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-91_tongue-1      </td><td>nenipá           </td><td>nenipá           </td><td>['n', 'e', 'n', 'i', 'p', 'á/a']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-91_tongue-1       </td><td>nène             </td><td>nène             </td><td>['n', 'è/e', 'n', 'e']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-91_tongue-1      </td><td>e?héepé          </td><td>eʔhéepé          </td><td>['e', 'ʔ', 'h', 'é/e', 'e', 'p', 'é/e']                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-91_tongue-1        </td><td>lenaji           </td><td>lenahi           </td><td>['l', 'e', 'n', 'a', 'h', 'i']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-92_tooth-1        </td><td>éeʃi             </td><td>éeʃi             </td><td>['é/e', 'e', 'ʃ', 'i']                                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-92_tooth-1         </td><td>-eetsha          </td><td>-eetsha          </td><td>['ee', 'tsʰ', 'a']                                                           </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-92_tooth-2         </td><td>-dzawiere        </td><td>-dzawiere        </td><td>['dz', 'a', 'w', 'i', 'e', 'r', 'e']                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-92_tooth-3         </td><td>-ee              </td><td>-ee              </td><td>['ee']                                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-92_tooth-4         </td><td>-kako            </td><td>-kako            </td><td>['k', 'a', 'k', 'o']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-92_tooth-5         </td><td>-likoe           </td><td>-likoe           </td><td>['l', 'i', 'k', 'o', 'e']                                                    </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-92_tooth-1       </td><td>ʔía              </td><td>ʔía              </td><td>['ʔ', 'í/i', 'a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-92_tooth-1        </td><td>yèi              </td><td>jèi              </td><td>['j', 'è/e', 'i']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-92_tooth-1       </td><td>oné              </td><td>oné              </td><td>['o', 'n', 'é/e']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-92_tooth-1         </td><td>aijí             </td><td>aihí             </td><td>['a', 'i', 'h', 'í/i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-93_treewood-1     </td><td>áikuba           </td><td>áikuba           </td><td>['á/a', 'i', 'k', 'u', 'b', 'a']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-93_treewood-1      </td><td>haiko            </td><td>haiko            </td><td>['h', 'a', 'i', 'k', 'o']                                                    </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-93_treewood-1    </td><td>ʔahaa            </td><td>ʔahaa            </td><td>['ʔ', 'a', 'h', 'aa']                                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-93_treewood-1     </td><td>jéetaná          </td><td>jéetaná          </td><td>['j', 'é/e', 'e', 't', 'a', 'n', 'á/a']                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-93_treewood-2     </td><td>àiku             </td><td>àiku             </td><td>['à/a', 'i', 'k', 'u']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-93_treewood-1    </td><td>aváana?é         </td><td>aváanaʔé         </td><td>['a', 'v', 'á/a', 'a', 'n', 'a', 'ʔ', 'é/e']                                 </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-93_treewood-1      </td><td>a'awaná          </td><td>aʔawaná          </td><td>['a', 'ʔ', 'a', 'w', 'a', 'n', 'á/a']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-94_two-1          </td><td>tʃámai           </td><td>tʃámai           </td><td>['tʃ', 'á/a', 'm', 'a', 'i']                                                 </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-94_two-1           </td><td>dzama-           </td><td>dzama-           </td><td>['dz', 'a', 'm', 'a']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-94_two-1         </td><td>tʃumaa-          </td><td>tʃumaa-          </td><td>['tʃ', 'u', 'm', 'aa']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-94_two-1          </td><td>pucháiba         </td><td>putʃáiba         </td><td>['p', 'u', 'tʃ', 'á/a', 'i', 'b', 'a']                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-94_two-1         </td><td>migaakú          </td><td>migaakú          </td><td>['m', 'i', 'g', 'aa', 'k', 'ú/u']                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-94_two-1           </td><td>iyamá            </td><td>ijamá            </td><td>['i', 'j', 'a', 'm', 'á/a']                                                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-94_two-1         </td><td>dama-            </td><td>dama-            </td><td>['d', 'a', 'm', 'a']                                                         </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-95_walk-1         </td><td>híneriu          </td><td>híneriu          </td><td>['h', 'í/i', 'n', 'e', 'r', 'i', 'u']                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-95_walk-1          </td><td>-áanhi           </td><td>-áanhi           </td><td>['á/a', 'a', 'ɲ', 'i']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-95_walk-2          </td><td>-eemánhi         </td><td>-eemánhi         </td><td>['ee', 'm', 'á/a', 'ɲ', 'i']                                                 </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-95_walk-1        </td><td>aa               </td><td>aa               </td><td>['aa']                                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-95_walk-1         </td><td>nuèpunícawa      </td><td>nuèpuníkawa      </td><td>['n', 'u', 'è/e', 'p', 'u', 'n', 'í/i', 'k', 'a', 'w', 'a']                  </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-95_walk-1        </td><td>-hí?vu           </td><td>-hí?vu           </td><td>['h', 'í/i', 'ʔ', 'v', 'u']                                                  </td><td>['allin_vocabulario_1979']          </td></tr>
+<tr><td>Yukuna-95_walk-1          </td><td>ja'apákaje       </td><td>ja'apákaje       </td><td>['j', 'a', 'ʔ', 'a', 'p', 'á/a', 'k', 'a', 'j', 'e']                         </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-96_water-1        </td><td>ʃiátai           </td><td>ʃiátai           </td><td>['ʃ', 'i', 'á/a', 't', 'a', 'i']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-96_water-1         </td><td>óoni             </td><td>óoni             </td><td>['ó/o', 'o', 'n', 'i']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-96_water-1       </td><td>úuni             </td><td>úuni             </td><td>['ú/u', 'u', 'n', 'i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-96_water-1        </td><td>ú(u)ni           </td><td>ú(u)ni           </td><td>['ú/u', 'u', 'n', 'i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-96_water-1       </td><td>hooní            </td><td>hooní            </td><td>['h', 'oo', 'n', 'í/i']                                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-96_water-1         </td><td>juni             </td><td>húni             </td><td>['h', 'ú/u', 'n', 'i']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-97_we-1           </td><td>wajá             </td><td>wajá             </td><td>['w', 'a', 'j', 'á/a']                                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-97_we-1            </td><td>whía             </td><td>whía             </td><td>['w', 'h', 'í/i', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-97_we-2            </td><td>wa-              </td><td>wa-              </td><td>['w', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-97_we-1          </td><td>whé              </td><td>whé              </td><td>['w', 'h', 'é/e']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-97_we-2          </td><td>wa-              </td><td>wa-              </td><td>['w', 'a']                                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-97_we-1           </td><td>wía              </td><td>wía              </td><td>['w', 'í/i', 'a']                                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-97_we-1          </td><td>muu?á            </td><td>muuʔá            </td><td>['m', 'uu', 'ʔ', 'á/a']                                                      </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-97_we-2          </td><td>fa?á             </td><td>faʔá             </td><td>['f', 'a', 'ʔ', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Tariana-97_we-1           </td><td>w(a)ha           </td><td>w(a)ha           </td><td>['w', 'a', 'h', 'a']                                                         </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-97_we-1            </td><td>weká             </td><td>weká             </td><td>['w', 'e', 'k', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-97_we-2            </td><td>weká             </td><td>weká             </td><td>['w', 'e', 'k', 'á/a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Warekena-97_we-1          </td><td>wa-              </td><td>wa-              </td><td>['w', 'a']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Warekena-97_we-2          </td><td>-wi              </td><td>-wi              </td><td>['w', 'i']                                                                   </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Achagua-98_what-1         </td><td>tána             </td><td>tána             </td><td>['t', 'á/a', 'n', 'a']                                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-98_what-1          </td><td>kôaka?           </td><td>kôaka?           </td><td>['k', 'ô/o', 'a', 'k', 'a', 'ʔ']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-98_what-1        </td><td>mikha            </td><td>mikha            </td><td>['m', 'i', 'kʰ', 'a']                                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-98_what-2        </td><td>arhi             </td><td>arhi             </td><td>['a', 'rʰ', 'i']                                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-98_what-3        </td><td>umha             </td><td>umha             </td><td>['u', 'mʰ', 'a']                                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-98_what-1         </td><td>càiná            </td><td>kàiná            </td><td>['k', 'à/a', 'i', 'n', 'á/a']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-98_what-2         </td><td>cawiná           </td><td>kawiná           </td><td>['+', 'k', 'a', 'w', 'i', 'n', 'á/a']                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-98_what-1        </td><td>keeni            </td><td>keeni            </td><td>['k', 'ee', 'n', 'i']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Resigaro-98_what-2        </td><td>kooni            </td><td>kooni            </td><td>['k', 'oo', 'n', 'i']                                                        </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Yukuna-98_what-1          </td><td>na               </td><td>na               </td><td>['n', 'a']                                                                   </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-99_white-1        </td><td>kabálai          </td><td>kabálai          </td><td>['k', 'a', 'b', 'á/a', 'l', 'a', 'i']                                        </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-99_white-1         </td><td>hále             </td><td>hále             </td><td>['h', 'á/a', 'l', 'e']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Baniwa-99_white-2         </td><td>yalanawi         </td><td>yalanawi         </td><td>['y', 'a', 'l', 'a', 'n', 'a', 'w', 'i']                                     </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-99_white-1       </td><td>katare:i-ri      </td><td>katare:i-ri      </td><td>['k', 'a', 't', 'a', 'r', 'e:', 'i', 'r', 'i']                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-99_white-2       </td><td>jarane           </td><td>jarane           </td><td>['j', 'a', 'r', 'a', 'n', 'e']                                               </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-99_white-1        </td><td>cabalèeri        </td><td>kabalèeɾi        </td><td>['k', 'a', 'b', 'a', 'l', 'è/e', 'e', 'ɾ', 'i']                              </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-99_white-1         </td><td>jareni           </td><td>jareni           </td><td>['j', 'a', 'r', 'e', 'n', 'i']                                               </td><td>['schauer_diccionario_2005']        </td></tr>
+<tr><td>Achagua-100_who-1         </td><td>tána             </td><td>tána             </td><td>['t', 'á/a', 'n', 'a']                                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-100_who-1          </td><td>kóaka            </td><td>kóaka            </td><td>['k', 'ó/o', 'a', 'k', 'a']                                                  </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-100_who-1        </td><td>mikha            </td><td>mikha            </td><td>['m', 'i', 'kʰ', 'a']                                                        </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-100_who-2        </td><td>arhi             </td><td>arhi             </td><td>['a', 'rʰ', 'i']                                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Kabiyari-100_who-3        </td><td>umha             </td><td>umha             </td><td>['u', 'mʰ', 'a']                                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-100_who-1         </td><td>càiná            </td><td>kàiná            </td><td>['k', 'à/a', 'i', 'n', 'á/a']                                                </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-100_who-2         </td><td>cawiná           </td><td>kawiná           </td><td>['k', 'a', 'w', 'i', 'n', 'á/a']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-100_who-1        </td><td>kéení            </td><td>kéení            </td><td>['k', 'é/e', 'e', 'n', 'í/i']                                                </td><td>['huber_vocabulario_1991']          </td></tr>
+<tr><td>Tariana-100_who-1         </td><td>kwana            </td><td>kwana            </td><td>['k', 'w', 'a', 'n', 'a']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-100_who-1          </td><td>najlo            </td><td>nahlo            </td><td>['n', 'a', 'h', 'l', 'o']                                                    </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-101_woman-1       </td><td>íinetoo          </td><td>íinetoo          </td><td>['í/i', 'i', 'n', 'e', 't', 'oo']                                            </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Achagua-101_woman-2       </td><td>íina             </td><td>íina             </td><td>['í/i', 'i', 'n', 'a']                                                       </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-101_woman-1        </td><td>íinaro           </td><td>íinaro           </td><td>['í/i', 'i', 'n', 'a', 'r', 'o']                                             </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-101_woman-1      </td><td>nanáwí           </td><td>nanáwí           </td><td>['n', 'a', 'n', 'á/a', 'w', 'í/i']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-101_woman-1       </td><td>inanái           </td><td>inanái           </td><td>['i', 'n', 'a', 'n', 'á/a', 'i']                                             </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-101_woman-1      </td><td>ináadó           </td><td>ináadó           </td><td>['i', 'n', 'á/a', 'a', 'd', 'ó/o']                                           </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-101_woman-1        </td><td>inanaru          </td><td>inanaɾu          </td><td>['i', 'n', 'a', 'n', 'a', 'ɾ', 'u']                                          </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Achagua-102_yellow-1      </td><td>meréekii         </td><td>mereekii         </td><td>['m', 'e', 'r', 'ee', 'k', 'ii']                                             </td><td>['melendez_lozano_diccionario_2011']</td></tr>
+<tr><td>Baniwa-102_yellow-1       </td><td>éewa             </td><td>éewa             </td><td>['é/e', 'e', 'w', 'a']                                                       </td><td>['ramirez_dicionario_2001']         </td></tr>
+<tr><td>Kabiyari-102_yellow-1     </td><td>karawa-ri        </td><td>karawa-ri        </td><td>['k', 'a', 'r', 'a', 'w', 'a', 'r', 'i']                                     </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-102_yellow-1      </td><td>é(e)wa           </td><td>é(e)wa           </td><td>['é/e', 'e', 'w', 'a']                                                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Piapoco-102_yellow-2      </td><td>éewéeri          </td><td>é:wé:ɾi          </td><td>['é:/eː', 'w', 'é:/eː', 'ɾ', 'i']                                            </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Resigaro-102_yellow-1     </td><td>dogíiga?é?       </td><td>dogíigaʔéʔ       </td><td>['d', 'o', 'g', 'í/i', 'i', 'g', 'a', 'ʔ', 'é/e', 'ʔ']                       </td><td>['Chacon2017']                      </td></tr>
+<tr><td>Yukuna-102_yellow-1       </td><td>jewani           </td><td>jewani           </td><td>['j', 'e', 'w', 'a', 'n', 'i']                                               </td><td>['schauer_diccionario_2005']        </td></tr>
+</tbody>
+</table>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <footer>
+                    <div class="row-fluid" style="padding-top: 15px; border-top: 1px solid black; padding-bottom: 15px;">
+                        <div style="text-align: center; margin-top: 20px;">
+                            <p>Here goes the footer...</p>
+
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
