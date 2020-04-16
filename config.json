@@ -12,6 +12,6 @@
 
   "language_table" : ["Name", "Glottocode", "Latitude", "Longitude", "Family"],
   "parameter_table" : ["Name", "Concepticon_ID", "Concepticon_Gloss"],
-  "form_table" : ["ID", "Value", "Form", "Segments", "Source"]
+  "form_table" : ["ID", "Form", "Segments", "Source"]
 
 }

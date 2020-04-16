@@ -86,9 +86,14 @@ def read_cldf_data(base_path, config):
         table_name = table.split("_")[0]
         cldf_table = "%sTable" % table_name.capitalize()
 
-        # Extract data
+        # Extract data, taking care of type conversion
         cldf_data[table_name] = [
-            [row[field] for field in config[table]]
+            [
+                " ".join(row[field])
+                if isinstance(list, row[field])
+                else row[field]
+                for field in config[table]
+            ]
             for row in dataset[cldf_table]
         ]
 
