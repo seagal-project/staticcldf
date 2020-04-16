@@ -10,7 +10,7 @@
   "index_file" : "index.md",
   "sidebar_file" : "sidebar.md",
 
-  "language_fields" : ["Name", "Glottocode", "Latitude", "Longitude", "Family"],
-  "parameter_fields" : ["Name", "Concepticon_ID", "Concepticon_Gloss"]
+  "language_table" : ["Name", "Glottocode", "Latitude", "Longitude", "Family"],
+  "parameter_table" : ["Name", "Concepticon_ID", "Concepticon_Gloss"]
 
 }

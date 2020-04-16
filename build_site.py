@@ -13,8 +13,6 @@ Upon deployment, previous files are not deleted: success in new generation
 and deployment should be checked by the user from the script return codes.
 """
 
-# TODO: decide on concepts/parameters
-
 # Import Python standard libraries
 import json
 import logging
@@ -61,25 +59,38 @@ def fill_template(template, replaces):
     return source
 
 
-# TODO: properly implement with pycldf, currently reading with csv
 def read_cldf_data(base_path, config):
-    cldf_data = {}
+    """
+    Read CLDF data as lists of Python dictionaries.
+
+    This function interfaces with `pycldf`. The tables and columns to
+    extract are obtained from `*_fields` entries in `config`.
+
+    Parameters
+    ----------
+    base_path : pathlib.Path
+        Base repository path for building cldf metadata path.
+    config : dict
+        A dictionary with the configurations.
+    """
 
     # Read dataset from metadata
     metadata = base_path / "cldf" / "cldf-metadata.json"
     dataset = Dataset.from_metadata(metadata.as_posix())
 
-    # Build language table
-    cldf_data["languages"] = [
-        [row[field] for field in config["language_fields"]]
-        for row in dataset["LanguageTable"]
-    ]
+    # Extract tables and data
+    cldf_data = {}
+    tables = [key for key in config if key.endswith("_table")]
+    for table in tables:
+        # Build name as in CLDF dataset
+        table_name = table.split("_")[0]
+        cldf_table = "%sTable" % table_name.capitalize()
 
-    # Build parameter table
-    cldf_data["concepts"] = [
-        [row[field] for field in config["parameter_fields"]]
-        for row in dataset["ParameterTable"]
-    ]
+        # Extract data
+        cldf_data[table_name] = [
+            [row[field] for field in config[table]]
+            for row in dataset[cldf_table]
+        ]
 
     return cldf_data
 
@@ -113,7 +124,7 @@ def build_html(template, replaces, output_file, config):
 def build_tables(data, replaces, template, config):
     # write languages
     html_table = tabulate(
-        data["languages"], headers=config["language_fields"], tablefmt="html"
+        data["language"], headers=config["language_table"], tablefmt="html"
     )
     html_table = html_table.replace(
         "<table>", '<table id="data_table" class="display">'
@@ -124,7 +135,7 @@ def build_tables(data, replaces, template, config):
 
     # write concepts
     html_table = tabulate(
-        data["concepts"], headers=config["parameter_fields"], tablefmt="html"
+        data["parameter"], headers=config["parameter_table"], tablefmt="html"
     )
     html_table = html_table.replace(
         "<table>", '<table id="data_table" class="display">'
@@ -237,10 +248,12 @@ def main():
     base_path = Path(__file__).parent.resolve()
 
     # Load JSON configuration and replaces, and include paths in the first
-    # TODO: allow user-specified output
     config, replaces = load_config(base_path)
     config["base_path"] = base_path
     config["output_path"] = base_path / config["output_path"]
+
+    # Read CLDF data
+    cldf_data = read_cldf_data(base_path, config)
 
     # Load HTML templates
     sb_template, nosb_template = load_templates(config)
@@ -248,8 +261,7 @@ def main():
     # Build and write index.html
     build_html(sb_template, replaces, "index.html", config)
 
-    # Read data tables from CLDF files
-    cldf_data = read_cldf_data(base_path, config)
+    # Build tables from CLDF data
     build_tables(cldf_data, replaces, nosb_template, config)
 
 
