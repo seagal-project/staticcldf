@@ -25,6 +25,9 @@ from string import Template
 import markdown
 from tabulate import tabulate
 
+# Import MPI-SHH libraries
+from pycldf.dataset import Dataset
+
 
 def fill_template(template, replaces):
     """
@@ -62,26 +65,21 @@ def fill_template(template, replaces):
 def read_cldf_data(base_path, config):
     cldf_data = {}
 
-    # import for temporary implementation
-    import csv
+    # Read dataset from metadata
+    metadata = base_path / "cldf" / "cldf-metadata.json"
+    dataset = Dataset.from_metadata(metadata.as_posix())
 
-    # Read languages table
-    lang_path = base_path / "cldf" / "languages.csv"
-    with open(lang_path.as_posix()) as csvfile:
-        reader = csv.DictReader(csvfile)
-        cldf_data["languages"] = [
-            [row[field] for field in config["language_fields"]]
-            for row in reader
-        ]
+    # Build language table
+    cldf_data["languages"] = [
+        [row[field] for field in config["language_fields"]]
+        for row in dataset["LanguageTable"]
+    ]
 
-    # Read paramters table
-    param_path = base_path / "cldf" / "parameters.csv"
-    with open(param_path.as_posix()) as csvfile:
-        reader = csv.DictReader(csvfile)
-        cldf_data["concepts"] = [
-            [row[field] for field in config["parameter_fields"]]
-            for row in reader
-        ]
+    # Build parameter table
+    cldf_data["concepts"] = [
+        [row[field] for field in config["parameter_fields"]]
+        for row in dataset["ParameterTable"]
+    ]
 
     return cldf_data
 
