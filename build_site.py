@@ -90,7 +90,7 @@ def read_cldf_data(base_path, config):
         cldf_data[table_name] = [
             [
                 " ".join(row[field])
-                if isinstance(list, row[field])
+                if isinstance(row[field], (list, tuple))
                 else row[field]
                 for field in config[table]
             ]
