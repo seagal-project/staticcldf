@@ -19,23 +19,29 @@ def read_cldf_data(config):
     metadata = config["base_path"] / "cldf" / "cldf-metadata.json"
     dataset = Dataset.from_metadata(metadata.as_posix())
 
-    # Extract tables and data
+    # Extract the requested tables and data
     cldf_data = {}
-    tables = [key for key in config if key.endswith("_table")]
-    for table in tables:
-        # Build name as in CLDF dataset
-        table_name = table.split("_")[0]
-        cldf_table = "%sTable" % table_name.capitalize()
+    for table in dataset.tables:
+        # Extract table name
+        # TODO: use CLDF info?
+        table_name = table.local_name.split('.')[0].capitalize()
 
-        # Extract data, taking care of type conversion
-        cldf_data[table_name] = [
+        # Extract table data, taking care of type conversion
+        # TODO: use type conversion from metadata
+        # TODO: check which columns are needed
+        columns = [c.name for c in table.tableSchema.columns]
+        cldf_data[table_name] = [columns] + [
             [
-                " ".join(row[field])
-                if isinstance(row[field], (list, tuple))
-                else row[field]
-                for field in config[table]
+                " ".join(row[column])
+                if isinstance(row[column], (list, tuple))
+                else row[column]
+                for column in columns
             ]
-            for row in dataset[cldf_table]
+            for row in table
         ]
+
+    # TODO: remove those which are all empty or None
+
+    print(list(cldf_data.keys()))
 
     return cldf_data

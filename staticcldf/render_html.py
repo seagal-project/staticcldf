@@ -9,7 +9,7 @@ from . import utils
 def build_tables(data, replaces, template, config):
     # write forms
     html_table = tabulate(
-        data["form"], headers=config["form_table"], tablefmt="html"
+        data["Forms"], headers="firstrow", tablefmt="html"
     )
     html_table = html_table.replace(
         "<table>", '<table id="data_table" class="display">'
@@ -20,7 +20,7 @@ def build_tables(data, replaces, template, config):
 
     # write languages
     html_table = tabulate(
-        data["language"], headers=config["language_table"], tablefmt="html"
+        data["Languages"], headers="firstrow", tablefmt="html"
     )
     html_table = html_table.replace(
         "<table>", '<table id="data_table" class="display">'
@@ -31,7 +31,7 @@ def build_tables(data, replaces, template, config):
 
     # write concepts
     html_table = tabulate(
-        data["parameter"], headers=config["parameter_table"], tablefmt="html"
+        data["Parameters"], headers="firstrow", tablefmt="html"
     )
     html_table = html_table.replace(
         "<table>", '<table id="data_table" class="display">'
