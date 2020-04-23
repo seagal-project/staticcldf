@@ -31,15 +31,13 @@
         <div class="navbar-collapse collapse justify-content-stretch" id="mainnavbar">
             <ul class="navbar-nav">
 
-{% for table in tables %}
-<li class="nav-item">
-{% if table['url'].endswith(file) %}
-<a class="nav-link active" href="{{table['url']}}">{{table['name']}}</a>
-{% else %}
-<a class="nav-link" href="{{table['url']}}">{{table['name']}}</a>
-{% endif %}
-</li>
-{% endfor %}
+                {% for table in tables %}
+                <li class="nav-item">
+                    {% if table['url'].endswith(file) %}
+                    <a class="nav-link active" href="{{table['url']}}">{{table['name']}}</a> {% else %}
+                    <a class="nav-link" href="{{table['url']}}">{{table['name']}}</a> {% endif %}
+                </li>
+                {% endfor %}
 
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -84,8 +82,7 @@
                 </div>
             </div>
             <div class="footer-copyright text-center">
-Copyright &copy; 2020, Tiago Tresoldi<br />
-This page was compiled on {{ current_time }}
+                Copyright &copy; 2020, Tiago Tresoldi<br /> This page was compiled on {{ current_time }}
             </div>
     </footer>
 
@@ -96,9 +93,9 @@ This page was compiled on {{ current_time }}
 
     <!-- Activate DataTables -->
     <script>
-      $(document).ready( function () {
-        $('#data_table').DataTable();
-      } );
+        $(document).ready( function () {
+            $('#data_table').DataTable();
+          } );
     </script>
 
 </body>
