@@ -40,20 +40,10 @@ def main():
     config["output_path"] = base_path / config["output_path"]
 
     # Read CLDF data
-    cldf_data = staticcldf.read_cldf_data(base_path, config)
+    cldf_data = staticcldf.read_cldf_data(config)
 
-    # Load Jinja HTML template
-    template = staticcldf.load_templates(config)
-
-    # Build and write index.html
-    staticcldf.build_html(template, replaces, "index.html", config)
-
-    # Build tables from CLDF data
-    staticcldf.build_tables(cldf_data, replaces, template, config)
-
-    # Build CSS files from template
-    staticcldf.build_css(replaces, config)
-
+    # Build site
+    staticcldf.render_html(cldf_data, replaces, config)
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)

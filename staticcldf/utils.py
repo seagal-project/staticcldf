@@ -7,6 +7,7 @@ import json
 import logging
 
 # Import 3rd party libraries
+from jinja2 import Environment, FileSystemLoader
 import markdown
 
 
@@ -65,3 +66,23 @@ def load_config(base_path):
     }
 
     return config, replaces
+
+
+def load_templates(config):
+    logging.info("Loading templates...")
+
+    # Build template_file and layout path
+    template_path = config["base_path"] / "template"
+    template_file = template_path / "layout.html"
+
+    # Load layout template
+    with open(template_file.as_posix()) as handler:
+        layout_template = handler.read()
+    logging.info("Loaded layout template of %i bytes.", len(layout_template))
+
+    # Build Jinja Environment
+    template = Environment(
+        loader=FileSystemLoader(template_path.as_posix())
+    ).from_string(layout_template)
+
+    return template
