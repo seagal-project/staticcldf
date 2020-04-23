@@ -1,6 +1,7 @@
 # __init__.py
 
 # Import Python standard libraries
+import datetime
 import json
 import logging
 from pathlib import Path
@@ -105,9 +106,9 @@ def build_html(template, replaces, output_file, config):
         A dictionary with the configurations.
     """
 
-    # Apply replacements
+    # Apply replacements, also setting current data
     logging.info("Applying replacements to generate `%s`...", output_file)
-    source = template.render(**replaces)
+    source = template.render(current_time = datetime.datetime.now().ctime(), **replaces)
 
     # Write
     file_path = config["output_path"] / output_file
