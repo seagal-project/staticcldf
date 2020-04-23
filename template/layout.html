@@ -30,15 +30,17 @@
                                        </button>
         <div class="navbar-collapse collapse justify-content-stretch" id="mainnavbar">
             <ul class="navbar-nav">
-                                               <li class="nav-item active">
-                                                   <a class="nav-link" href="forms.html">Forms</a>
-                                               </li>
-                                               <li class="nav-item">
-                                                   <a class="nav-link" href="languages.html">Languages</a>
-                                               </li>
-                                               <li class="nav-item">
-                                                   <a class="nav-link" href="parameters.html">Parameters</a>
-                                               </li>
+
+{% for table in tables %}
+<li class="nav-item">
+{% if table['url'].endswith(file) %}
+<a class="nav-link active" href="{{table['url']}}">{{table['name']}}</a>
+{% else %}
+<a class="nav-link" href="{{table['url']}}">{{table['name']}}</a>
+{% endif %}
+</li>
+{% endfor %}
+
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -59,7 +61,7 @@
                 <h2>Welcome to {{title}}</h2>
 
                 <div class="home-main">
-                    <p>{{home_nosb_main}}</p>
+                    <p>{{contents}}</p>
                 </div>
 
             </div>
