@@ -13,12 +13,18 @@ Upon deployment, previous files are not deleted: success in new generation
 and deployment should be checked by the user from the script return codes.
 """
 
+# TODO: copy image files if exists, etc.
+# TODO: build essential latex template
+# TODO: allow different templates (including latex? should be a list?)
+
 # Import Python standard libraries
 import logging
 from pathlib import Path
 
-# Import library
-from staticcldf import fill_template, read_cldf_data, build_html, build_tables, load_templates, load_config
+# Import functions from the `staticcldf` directory; in the future, this will
+# be turned into an actual Python library/package
+import staticcldf
+
 
 def main():
     """
@@ -29,21 +35,24 @@ def main():
     base_path = Path(__file__).parent.resolve()
 
     # Load JSON configuration and replaces, and include paths in the first
-    config, replaces = load_config(base_path)
+    config, replaces = staticcldf.load_config(base_path)
     config["base_path"] = base_path
     config["output_path"] = base_path / config["output_path"]
 
     # Read CLDF data
-    cldf_data = read_cldf_data(base_path, config)
+    cldf_data = staticcldf.read_cldf_data(base_path, config)
 
-    # Load HTML templates
-    sb_template, nosb_template = load_templates(config)
+    # Load Jinja HTML template
+    template = staticcldf.load_templates(config)
 
     # Build and write index.html
-    build_html(sb_template, replaces, "index.html", config)
+    staticcldf.build_html(template, replaces, "index.html", config)
 
     # Build tables from CLDF data
-    build_tables(cldf_data, replaces, nosb_template, config)
+    staticcldf.build_tables(cldf_data, replaces, template, config)
+
+    # Build CSS files from template
+    staticcldf.build_css(replaces, config)
 
 
 if __name__ == "__main__":

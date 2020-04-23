@@ -8,10 +8,14 @@ from string import Template
 
 # Import 3rd party libraries
 import markdown
+from jinja2 import Environment, FileSystemLoader
 from tabulate import tabulate
 
 # Import MPI-SHH libraries
 from pycldf.dataset import Dataset
+
+# Import from local modules
+from .utils import load_config
 
 
 def fill_template(template, replaces):
@@ -93,7 +97,7 @@ def build_html(template, replaces, output_file, config):
 
     Parameters
     ----------
-    template : str
+    template : str TODO
         Source for the HTML template.
     replaces : dict
         A dictionary of replaces for filling the template.
@@ -103,7 +107,7 @@ def build_html(template, replaces, output_file, config):
 
     # Apply replacements
     logging.info("Applying replacements to generate `%s`...", output_file)
-    source = fill_template(template, replaces)
+    source = template.render(**replaces)
 
     # Write
     file_path = config["output_path"] / output_file
@@ -149,94 +153,43 @@ def build_tables(data, replaces, template, config):
 
 
 def load_templates(config):
-    """
-    Load and return the sources for the basic HTML templates.
+    logging.info("Loading templates...")
 
-    Any additional pre-processing of the template should take place in this
-    function.
+    # Build template_file and layout path
+    template_path = config["base_path"] / "template"
+    template_file = template_path / "layout.html"
 
-    Parameters
-    ----------
-    config : dict
-        A dictionary with the configurations.
-
-    Returns
-    -------
-    sidebar_template : str
-        Source for the HTML template with a sidebar.
-    nosidebar_template : str
-        Source for the HTML template without a sidebar.
-    """
-
-    logging.info("Loading the sidebar HTML template...")
-
-    # Load with sidebar
-    template_file = config["base_path"] / "template" / "with_sidebar.html"
+    # Load layout template
     with open(template_file.as_posix()) as handler:
-        sidebar_template = handler.read()
-    logging.info("Loaded template of %i bytes.", len(sidebar_template))
+        layout_template = handler.read()
+    logging.info("Loaded layout template of %i bytes.", len(layout_template))
 
-    # Load without sidebar
-    template_file = config["base_path"] / "template" / "no_sidebar.html"
-    with open(template_file.as_posix()) as handler:
-        nosidebar_template = handler.read()
-    logging.info("Loaded template of %i bytes.", len(nosidebar_template))
+    # Build Jinja Environment
+    template = Environment(
+        loader=FileSystemLoader(template_path.as_posix())
+    ).from_string(layout_template)
 
-    return sidebar_template, nosidebar_template
+    return template
 
 
-def load_config(base_path):
-    """
-    Load configuration, contents, and replacements.
+# TODO: write properly etc. should load with other templates
+def build_css(replaces, config):
+    # Build template_file and layout path
+    template_path = config["base_path"] / "template"
+    css_file = template_path / "main.css"
 
-    The function will load configuration from a single JSON config file,
-    returning a dictionary of configurations and a dictionary of
-    replacements that includes markdown contents read from files.
+    # Build css file
+    with open(css_file.as_posix()) as handler:
+        css_template = handler.read()
 
-    Parameters
-    ----------
-    base_path : pathlib.Path
-        Base path of the deployment system.
+    # Build Jinja Environment
+    template = Environment(
+        loader=FileSystemLoader(template_path.as_posix())
+    ).from_string(css_template)
 
-    Returns
-    -------
-    config : dict
-        A dictionary of dataset and webpage configurations.
-    replaces : dict
-        A dictionary of replacements, for filling templates.
-    """
+    source = template.render(**replaces)
 
-    # Load JSON data
-    logging.info("Loading JSON configuration...")
-    with open("config.json") as config_file:
-        config = json.load(config_file)
-
-    # Inner function for loading markdown files and converting to HTML
-    # TODO: only convert if .md
-    def _md2html(filename, base_path):
-        logging.info("Reading contents from `%s`..." % filename)
-        content_path = base_path / "contents" / filename
-        with open(content_path.as_posix()) as handler:
-            source = markdown.markdown(handler.read())
-
-        return source
-
-    # Build replacement dictionary; which for future expansions it is
-    # preferable to keep separate from the actual configuration while
-    # using a single file not to scare potential users with too much
-    # structure to learn. Remember that, in order to make
-    # deployment easy, we are being quite strict here in terms of
-    # templates, etc.
-    replaces = {
-        "title": config.pop("title"),
-        "description": config.pop("description"),
-        "author": config.pop("author"),
-        "favicon": config.pop("favicon"),
-        "mainlink": config.pop("mainlink"),  # TODO: should be derived from URL?
-        "citation": config.pop("citation"),
-        "footer": _md2html(config.pop("footer_file"), base_path),
-        "home_sb_main": _md2html(config.pop("index_file"), base_path),
-        "home_sidebar": _md2html(config.pop("sidebar_file"), base_path),
-    }
-
-    return config, replaces
+    # build and writeWrite
+    file_path = config["output_path"] / "main.css"
+    with open(file_path.as_posix(), "w") as handler:
+        handler.write(source)
