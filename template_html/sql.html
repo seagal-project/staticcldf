@@ -18,8 +18,14 @@ Project now maintained by <a href='https://github.com/lovasoa'>lovasoa</a>.</p>
   <label for='commands'>Enter your SQL commands in the text bow below.</label>
   <br>
 
+  Table schemata:
+  {% for table in data %}
+    <b>{{ table }}</b>: {{ schemata[table] }}<br/>
+{% endfor %}
+
   <textarea id="commands">
 SELECT * FROM languages;
+SELECT * FROM forms WHERE language_id="Achagua";
 </textarea>
 
   <button id="execute" class="button">Execute</button>
