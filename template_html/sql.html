@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+{% for table in data %}
+  execute("DROP TABLE IF EXISTS {{ table }};");
+
+  {% for row in data[table] %}
+  execute("INSERT INTO {{ table }} VALUES ({{ row }})");
+  {{ table }} - {{ row }} <br />
+  {% endfor %}
+{% endfor %}
+
+
+{% endblock %}
