@@ -44,7 +44,7 @@ SELECT name,hired_on FROM employees ORDER BY hired_on;</textarea>
   execute("CREATE TABLE employees({{ schemata[table] }});");
 
   {% for row in data[table] %}
-  execute("INSERT INTO {{ table }} VALUES ({{ row }})");
+  execute("INSERT INTO {{ table }} VALUES ({{ row }});");
   {% endfor %}
 {% endfor %}
 
