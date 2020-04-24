@@ -16,12 +16,14 @@ Project now maintained by <a href='https://github.com/lovasoa'>lovasoa</a>.</p>
 
 <main>
   <label for='commands'>Enter your SQL commands in the text bow below.</label>
-  <br>
+  <br />
 
-  Table schemata:
+  <p>
+  Table schemata:<br/>
   {% for table in data %}
     <b>{{ table }}</b>: {{ schemata[table] }}<br/>
-{% endfor %}
+  {% endfor %}
+  </p>
 
   <textarea id="commands">
 SELECT * FROM languages;

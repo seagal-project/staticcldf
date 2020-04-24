@@ -95,18 +95,20 @@ Project now maintained by <a href='https://github.com/lovasoa'>lovasoa</a>.</p>
 
 <main>
   <label for='commands'>Enter your SQL commands in the text bow below.</label>
-  <br>
+  <br />
 
-  Table schemata:
+  <p>
+  Table schemata:<br/>
   
     <b>forms</b>: id text, local_id text, language_id text, parameter_id text, value text, form text, segments text, comment text, source text, cognacy text, loan text<br/>
-
+  
     <b>languages</b>: id text, name text, glottocode text, glottolog_name text, iso639p3code text, macroarea text, latitude text, longitude text, family text<br/>
-
+  
     <b>parameters</b>: id text, name text, concepticon_id text, concepticon_gloss text, portuguese_gloss text<br/>
-
+  
     <b>cognates</b>: id text, form_id text, form text, cognateset_id text, doubt text, cognate_detection_method text, source text, alignment text, alignment_method text, alignment_source text<br/>
-
+  
+  </p>
 
   <textarea id="commands">
 SELECT * FROM languages;
@@ -144,7 +146,7 @@ SELECT * FROM forms WHERE language_id="Achagua";
                 </div>
             </div>
             <div class="footer-copyright text-center">
-                Copyright &copy; 2020, Tiago Tresoldi<br /> This page was compiled on Fri Apr 24 18:21:02 2020
+                Copyright &copy; 2020, Tiago Tresoldi<br /> This page was compiled on Fri Apr 24 18:22:47 2020
             </div>
     </footer>
 
