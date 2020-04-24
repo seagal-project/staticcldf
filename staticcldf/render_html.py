@@ -21,16 +21,14 @@ def build_sql_page(data, replaces, template_env, config):
     for table_name in data:
         inline_data[table_name] = []
         for row in data[table_name]['rows']:
-            row_insert = ",".join(["'%s'" % cell['value'] for cell in row])
+            row_insert = ", ".join(["'%s'" % cell['value'] for cell in row])
             inline_data[table_name].append(row_insert)
 
     # Build table schemata
     # TODO: use datatypes
     schemata = {}
     for table_name in data:
-        schemata[table_name] = [label.lower() for label in data[table_name]['columns']]
-
-    print(schemata)
+        schemata[table_name] = ", ".join(["%s text" % col['name'].lower() for col in data[table_name]['columns']])
 
     # Generate page
     sql_replaces = replaces.copy()

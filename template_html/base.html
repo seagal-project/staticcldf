@@ -19,6 +19,9 @@
     <!--- Load custom style sheet -->
     <link href="main.css" rel="stylesheet">
 
+    <!-- Extra header contets (if any) -->
+    {% block extra_header %}{% endblock %}
+
 </head>
 
 <body>
@@ -97,6 +100,9 @@
             $('#data_table').DataTable();
           } );
     </script>
+
+    <!-- Build SQL data (if in SQL page) -->
+    {% block sql_js %}{% endblock %}
 
 </body>
 

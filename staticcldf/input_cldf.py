@@ -25,7 +25,7 @@ def read_cldf_data(config):
     # of `columns` (with the sorted list of column names, found in the
     # rows), and `rows`. `rows` is a list of dictionaries, with the
     # `value` to be reported and optionally other information (such as the
-    # `url` and `datatype`) which may or may not be used by the template
+    # `url`) which may or may not be used by the template
     # (`value` is always used).
     # TODO: make conversion less explicit and with fewer loops
     # table.base -> /home/tresoldi/src/staticcldf/demo_cldf
@@ -54,7 +54,7 @@ def read_cldf_data(config):
             row_data = []
 
             # Iterate over all columns for the current row
-            for column, valueUrl, dt in zip(column_names, valueUrls, datatypes):
+            for column, valueUrl in zip(column_names, valueUrls):
                 if not row[column]:
                     value = ""
                 elif isinstance(row[column], (list, tuple)):
@@ -71,13 +71,17 @@ def read_cldf_data(config):
                     url = None
 
                 # Append computed values to `row_data`
-                row_data.append({"value": value, "url": url, "datatype":dt})
+                row_data.append({"value": value, "url": url})
 
             # Append current row to the table
             table_data.append(row_data)
 
         #  Append contents to overall table
-        cldf_data[table_key] = {"columns": column_names, "rows": table_data}
+        column_data = [{
+            "name" : name,
+            "datatype" : datatype,
+        } for name, datatype in zip(column_names, datatypes)]
+        cldf_data[table_key] = {"columns": column_data, "rows": table_data}
 
     # TODO: remove those which are all empty or None
 

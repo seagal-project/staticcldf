@@ -1,15 +1,36 @@
 {% extends 'base.html' %}
 
+{% block extra_header %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.46.0/codemirror.css">
+{% endblock %}
+
 {% block contents %}
+
+<p>This page is designed to query the database locally with SQLite. Data is
+loaded in memory and can take a while to load. It is intended for
+experimentation and exploration by advanced users familiar with SQL.</p>
+
+<p>The `sqljs` library is original work by kripken (<a href='https://github.com/kripken/sql.js'>sql.js</a>).
+C to Javascript compiler by kripken (<a href='https://github.com/kripken/emscripten'>emscripten</a>).
+Project now maintained by <a href='https://github.com/lovasoa'>lovasoa</a>.</p>
+
+{% endblock %}
+
+{% block sql_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.46.0/codemirror.js"></script>
+<script type="text/javascript" src="sql_interface.js"></script>
+<script type="text/javascript">
 
 {% for table in data %}
   execute("DROP TABLE IF EXISTS {{ table }};");
+  execute("CREATE TABLE employees({{ schemata[table] }};");
+
 
   {% for row in data[table] %}
   execute("INSERT INTO {{ table }} VALUES ({{ row }})");
-  {{ table }} - {{ row }} <br />
   {% endfor %}
 {% endfor %}
 
+</script>
 
 {% endblock %}
