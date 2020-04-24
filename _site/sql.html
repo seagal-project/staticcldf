@@ -134,7 +134,7 @@ SELECT name,hired_on FROM employees ORDER BY hired_on;</textarea>
                 </div>
             </div>
             <div class="footer-copyright text-center">
-                Copyright &copy; 2020, Tiago Tresoldi<br /> This page was compiled on Fri Apr 24 17:20:46 2020
+                Copyright &copy; 2020, Tiago Tresoldi<br /> This page was compiled on Fri Apr 24 17:31:11 2020
             </div>
     </footer>
 
@@ -158,7 +158,7 @@ SELECT name,hired_on FROM employees ORDER BY hired_on;</textarea>
 
 
   execute("DROP TABLE IF EXISTS forms;");
-  execute("CREATE TABLE employees(id text, local_id text, language_id text, parameter_id text, value text, form text, segments text, comment text, source text, cognacy text, loan text;");
+  execute("CREATE TABLE employees(id text, local_id text, language_id text, parameter_id text, value text, form text, segments text, comment text, source text, cognacy text, loan text);");
 
   
   execute("INSERT INTO forms VALUES ('Achagua-1_i-1', '', 'Achagua', '1_i', 'nujá', 'nuja', 'n u j a', '', 'melendez_lozano_diccionario_2011', '', '')");
@@ -1585,7 +1585,7 @@ SELECT name,hired_on FROM employees ORDER BY hired_on;</textarea>
   
 
   execute("DROP TABLE IF EXISTS languages;");
-  execute("CREATE TABLE employees(id text, name text, glottocode text, glottolog_name text, iso639p3code text, macroarea text, latitude text, longitude text, family text;");
+  execute("CREATE TABLE employees(id text, name text, glottocode text, glottolog_name text, iso639p3code text, macroarea text, latitude text, longitude text, family text);");
 
   
   execute("INSERT INTO languages VALUES ('Achagua', 'Achagua', 'acha1250', 'Achagua', 'aca', 'South America', '4.38649', '-72.2005', 'Arawakan')");
@@ -1606,7 +1606,7 @@ SELECT name,hired_on FROM employees ORDER BY hired_on;</textarea>
   
 
   execute("DROP TABLE IF EXISTS parameters;");
-  execute("CREATE TABLE employees(id text, name text, concepticon_id text, concepticon_gloss text, portuguese_gloss text;");
+  execute("CREATE TABLE employees(id text, name text, concepticon_id text, concepticon_gloss text, portuguese_gloss text);");
 
   
   execute("INSERT INTO parameters VALUES ('1_i', 'I', '1209', 'I', '')");
@@ -1815,7 +1815,7 @@ SELECT name,hired_on FROM employees ORDER BY hired_on;</textarea>
   
 
   execute("DROP TABLE IF EXISTS cognates;");
-  execute("CREATE TABLE employees(id text, form_id text, form text, cognateset_id text, doubt text, cognate_detection_method text, source text, alignment text, alignment_method text, alignment_source text;");
+  execute("CREATE TABLE employees(id text, form_id text, form text, cognateset_id text, doubt text, cognate_detection_method text, source text, alignment text, alignment_method text, alignment_source text);");
 
   
   execute("INSERT INTO cognates VALUES ('Achagua-1_i-1-1', 'Achagua-1_i-1', 'nuja', '1', '', 'expert', 'Chacon2017', '', '', '')");
