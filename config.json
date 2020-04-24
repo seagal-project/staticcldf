@@ -6,9 +6,6 @@
   "favicon" : "https://clts.clld.org/clld-static/images/favicon.ico",
   "mainlink" : "https://static-cldf.netlify.com",
   "citation" : "Chacon, Thiago C. (2017): Arawakan and Tukanoan contacts in Northwest Amazonia prehistory. PAPIA 27(2). 237-265.",
-  "footer_file" : "footer.md",
-  "index_file" : "index.md",
-  "sidebar_file" : "sidebar.md",
 
   "language_table" : ["Name", "Glottocode", "Latitude", "Longitude", "Family"],
   "parameter_table" : ["Name", "Concepticon_ID", "Concepticon_Gloss"],

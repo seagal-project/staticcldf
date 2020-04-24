@@ -16,7 +16,7 @@ def read_cldf_data(config):
     """
 
     # Read dataset from metadata
-    metadata = config["base_path"] / "cldf" / "cldf-metadata.json"
+    metadata = config["base_path"] / "demo_cldf" / "cldf-metadata.json"
     dataset = Dataset.from_metadata(metadata.as_posix())
 
     # Extract the requested tables and data

@@ -60,9 +60,6 @@ def load_config(base_path):
         "favicon": config.pop("favicon"),
         "mainlink": config.pop("mainlink"),  # TODO: should be derived from URL?
         "citation": config.pop("citation"),
-        "footer": _md2html(config.pop("footer_file"), base_path),
-        "home_sb_main": _md2html(config.pop("index_file"), base_path),
-        "home_sidebar": _md2html(config.pop("sidebar_file"), base_path),
     }
 
     return config, replaces
