@@ -20,7 +20,7 @@
     <link href="main.css" rel="stylesheet">
 
     <!-- Extra header contets (if any) -->
-
+    
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.46.0/codemirror.css">
 
 
@@ -36,32 +36,32 @@
         <div class="navbar-collapse collapse justify-content-stretch" id="mainnavbar">
             <ul class="navbar-nav">
 
-
+                
                 <li class="nav-item">
-
-                    <a class="nav-link" href="languages.html">Languages</a>
+                    
+                    <a class="nav-link" href="languages.html">Languages</a> 
                 </li>
-
+                
                 <li class="nav-item">
-
-                    <a class="nav-link" href="parameters.html">Parameters</a>
+                    
+                    <a class="nav-link" href="parameters.html">Parameters</a> 
                 </li>
-
+                
                 <li class="nav-item">
-
-                    <a class="nav-link" href="forms.html">Forms</a>
+                    
+                    <a class="nav-link" href="forms.html">Forms</a> 
                 </li>
-
+                
                 <li class="nav-item">
-
-                    <a class="nav-link" href="cognates.html">Cognates</a>
+                    
+                    <a class="nav-link" href="cognates.html">Cognates</a> 
                 </li>
-
+                
                 <li class="nav-item">
-
-                    <a class="nav-link active" href="sql.html">SQL</a>
+                    
+                    <a class="nav-link active" href="sql.html">SQL</a> 
                 </li>
-
+                
 
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -133,7 +133,7 @@ SELECT * FROM languages;
                 </div>
             </div>
             <div class="footer-copyright text-center">
-                Copyright &copy; 2020, Tiago Tresoldi<br /> This page was compiled on Fri Apr 24 17:55:53 2020
+                Copyright &copy; 2020, Tiago Tresoldi<br /> This page was compiled on Fri Apr 24 18:02:31 2020
             </div>
     </footer>
 
@@ -150,22 +150,33 @@ SELECT * FROM languages;
     </script>
 
     <!-- Build SQL data (if in SQL page) -->
-
+    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.46.0/codemirror.js"></script>
 <script type="text/javascript" src="sql_interface.js"></script>
 <script type="text/javascript">
 
 
   execute("DROP TABLE IF EXISTS languages;");
-  execute("CREATE TABLE employees(id text, name text, glottocode text, glottolog_name text, iso639p3code text, macroarea text, latitude text, longitude text, family text);");
+  execute("CREATE TABLE languages(id text, name text, glottocode text, glottolog_name text, iso639p3code text, macroarea text, latitude text, longitude text, family text);");
+
+  
   execute("INSERT INTO languages VALUES ('Achagua', 'Achagua', 'acha1250', 'Achagua', 'aca', 'South America', '4.38649', '-72.2005', 'Arawakan');");
+  
   execute("INSERT INTO languages VALUES ('Baniwa', 'Baniwa', 'bani1255', 'Baniwa do Icana', 'bwi', 'South America', '2.17859', '-67.7704', 'Arawakan');");
+  
   execute("INSERT INTO languages VALUES ('Kabiyari', 'Kabiyari', 'cabi1241', 'Cabiyarí', 'cbb', 'South America', '0.16101', '-71.0622', 'Arawakan');");
+  
   execute("INSERT INTO languages VALUES ('Piapoco', 'Piapoco', 'piap1246', 'Piapoco', 'pio', 'South America', '4.37718', '-68.5953', 'Arawakan');");
+  
   execute("INSERT INTO languages VALUES ('Resigaro', 'Resigaro', 'resi1247', 'Resígaro', 'rgr', 'South America', '-2.48139', '-71.3578', 'Arawakan');");
+  
   execute("INSERT INTO languages VALUES ('Tariana', 'Tariana', 'tari1256', 'Tariana', 'tae', 'South America', '0.440205', '-68.9042', 'Arawakan');");
+  
   execute("INSERT INTO languages VALUES ('Warekena', 'Warekena', 'ware1255', 'Warekena Velha', NULL, 'South America', '1.668177', '-67.317297', 'Arawakan');");
+  
   execute("INSERT INTO languages VALUES ('Yukuna', 'Yukuna', 'yucu1253', 'Yucuna', 'ycn', 'South America', '-0.76075', '-71.0033', 'Arawakan');");
+  
+
 
 </script>
 

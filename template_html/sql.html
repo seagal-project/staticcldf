@@ -19,8 +19,7 @@ Project now maintained by <a href='https://github.com/lovasoa'>lovasoa</a>.</p>
   <br>
 
   <textarea id="commands">
-SELECT designation,COUNT(*) AS nbr, (AVG(salary)) AS avg_salary FROM employees GROUP BY designation ORDER BY avg_salary DESC;
-SELECT name,hired_on FROM employees ORDER BY hired_on;
+SELECT * FROM languages;
 </textarea>
 
   <button id="execute" class="button">Execute</button>
@@ -41,7 +40,7 @@ SELECT name,hired_on FROM employees ORDER BY hired_on;
 
 {% for table in data %}
   execute("DROP TABLE IF EXISTS {{ table }};");
-  execute("CREATE TABLE employees({{ schemata[table] }});");
+  execute("CREATE TABLE {{ table }}({{ schemata[table] }});");
 
   {% for row in data[table] %}
   execute("INSERT INTO {{ table }} VALUES ({{ row }});");
