@@ -72,6 +72,8 @@ def load_template_env(config):
     template_path = config["base_path"] / "template_html"
 
     # Build Jija template environment
-    template_env = Environment(loader=FileSystemLoader(template_path.as_posix()))
+    template_env = Environment(
+        loader=FileSystemLoader(template_path.as_posix())
+    )
 
     return template_env

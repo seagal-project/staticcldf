@@ -24,7 +24,7 @@ def read_cldf_data(config):
     for table in dataset.tables:
         # Extract table name
         # TODO: use CLDF info?
-        table_name = table.local_name.split('.')[0].capitalize()
+        table_name = table.local_name.split(".")[0].capitalize()
 
         # Extract table data, taking care of type conversion
         # TODO: use type conversion from metadata

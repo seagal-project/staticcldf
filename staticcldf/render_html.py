@@ -8,9 +8,7 @@ from . import utils
 
 def build_tables(data, replaces, template_env, config):
     # write forms
-    html_table = tabulate(
-        data["Forms"], headers="firstrow", tablefmt="html"
-    )
+    html_table = tabulate(data["Forms"], headers="firstrow", tablefmt="html")
     html_table = html_table.replace(
         "<table>", '<table id="data_table" class="display">'
     )
@@ -41,15 +39,14 @@ def build_tables(data, replaces, template_env, config):
     build_html(template_env, param_replaces, "parameters.html", config)
 
     # write cognates
-    html_table = tabulate(
-        data["Cognates"], headers="firstrow", tablefmt="html"
-    )
+    html_table = tabulate(data["Cognates"], headers="firstrow", tablefmt="html")
     html_table = html_table.replace(
         "<table>", '<table id="data_table" class="display">'
     )
     param_replaces = replaces.copy()
     param_replaces["contents"] = html_table
     build_html(template_env, param_replaces, "cognates.html", config)
+
 
 # TODO: write properly etc. should load with other templates;
 # TODO: also copy images if needed
@@ -83,19 +80,23 @@ def build_html(template_env, replaces, output_file, config):
     """
 
     tables = [
-        {'name': 'Languages', 'url':'languages.html'},
-        {'name': 'Parameters', 'url':'parameters.html'},
-        {'name': 'Forms', 'url':'forms.html'},
-        {'name': 'Cognates', 'url':'cognates.html'},
+        {"name": "Languages", "url": "languages.html"},
+        {"name": "Parameters", "url": "parameters.html"},
+        {"name": "Forms", "url": "forms.html"},
+        {"name": "Cognates", "url": "cognates.html"},
     ]
 
     # Load proper template and apply replacements, also setting current date
     logging.info("Applying replacements to generate `%s`...", output_file)
-    template = template_env.get_template("layout.html")
+    if output_file == "index.html":
+        template = template_env.get_template("index.html")
+    else:
+        template = template_env.get_template("datatable.html")
     source = template.render(
         tables=tables,
         file=output_file,
-        current_time=datetime.datetime.now().ctime(), **replaces
+        current_time=datetime.datetime.now().ctime(),
+        **replaces
     )
 
     # Write
