@@ -19,29 +19,64 @@ def read_cldf_data(config):
     metadata = config["base_path"] / "demo_cldf" / "cldf-metadata.json"
     dataset = Dataset.from_metadata(metadata.as_posix())
 
-    # Extract the requested tables and data
+    # Transform the dataset in a Python datastructure (`cldf_data`) suitable
+    # for Jinja template manipulation. `cldf_data` is a dictionary of
+    # tables, where the key is the table_name and value is a dictionary
+    # of `columns` (with the sorted list of column names, found in the
+    # rows), and `rows`. `rows` is a list of dictionaries, with the
+    # `value` to be reported and optionally other information (such as the
+    # `url`) which may or may not be used by the template (`value` is
+    # always used).
+    # TODO: make conversion less explicit and with fewer loops
+    # table.base -> /home/tresoldi/src/staticcldf/demo_cldf
+    # table.url -> cognates.csv
+    # table.local_name -> cognates.csv
+    # for col in table.tableSchema.columns:
+    #   - col.datatype.base -> string, decimal
+    #   - col.header -> Alignment_Source
+    #   - col.name -> Alignment_Source
+    #   - col.propertyUrl -> None, http://cldf.clld.org/v1.0/terms.rdf#alignment
+    #   - col.valueUrl -> None, http://glottolog.org/resource/languoid/id/{glottolog_id}
     cldf_data = {}
     for table in dataset.tables:
-        # Extract table name
-        # TODO: use CLDF info?
-        table_name = table.local_name.split(".")[0].capitalize()
+        table_key = table.local_name.split(".")[0]
 
-        # Extract table data, taking care of type conversion
-        # TODO: use type conversion from metadata
-        # TODO: check which columns are needed
-        columns = [c.name for c in table.tableSchema.columns]
-        cldf_data[table_name] = [columns] + [
-            [
-                " ".join(row[column])
-                if isinstance(row[column], (list, tuple))
-                else row[column]
-                for column in columns
-            ]
-            for row in table
-        ]
+        column_names = [col.name for col in table.tableSchema.columns]
+        valueUrls = [col.valueUrl for col in table.tableSchema.columns]
+
+        # Holder for the table values in the returned structure
+        table_data = []
+
+        # Iterate over all rows for the current table
+        for row in table:
+            # Holder for the row in the returned structure
+            row_data = []
+
+            # Iterate over all columns for the current row
+            for column, valueUrl in zip(column_names, valueUrls):
+                # TODO: deal with col.datatype.base
+                if isinstance(row[column], (list, tuple)):
+                    value = " ".join(row[column])
+                else:
+                    value = str(row[column])
+
+                if valueUrl:
+                    # Ugly replacement, but works with CLDF metadata
+                    # (assuming there is a single replacement)
+                    var_name = list(valueUrl.variable_names)[0]
+                    url = valueUrl.expand(**{var_name: value})
+                else:
+                    url = None
+
+                # Append computed values to `row_data`
+                row_data.append({"value": value, "url": url})
+
+            # Append current row to the table
+            table_data.append(row_data)
+
+        #  Append contents to overall table
+        cldf_data[table_key] = {"columns": column_names, "rows": table_data}
 
     # TODO: remove those which are all empty or None
-
-    print(list(cldf_data.keys()))
 
     return cldf_data

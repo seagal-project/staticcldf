@@ -5,47 +5,25 @@ from tabulate import tabulate
 
 from . import utils
 
+# TODO: fix navigation bar
+
 
 def build_tables(data, replaces, template_env, config):
-    # write forms
-    html_table = tabulate(data["Forms"], headers="firstrow", tablefmt="html")
-    html_table = html_table.replace(
-        "<table>", '<table id="data_table" class="display">'
-    )
-    form_replaces = replaces.copy()
-    form_replaces["contents"] = html_table
-    build_html(template_env, form_replaces, "forms.html", config)
+    for table in data:
+        values = [
+            [cell["value"] for cell in row] for row in data[table]["rows"]
+        ]
 
-    # write languages
-    html_table = tabulate(
-        data["Languages"], headers="firstrow", tablefmt="html"
-    )
-    html_table = html_table.replace(
-        "<table>", '<table id="data_table" class="display">'
-    )
-    lang_replaces = replaces.copy()
-    lang_replaces["contents"] = html_table
-    build_html(template_env, lang_replaces, "languages.html", config)
+        html_table = tabulate(
+            values, headers=data[table]["columns"], tablefmt="html"
+        )
+        html_table = html_table.replace(
+            "<table>", '<table id="data_table" class="display">'
+        )
 
-    # write concepts
-    html_table = tabulate(
-        data["Parameters"], headers="firstrow", tablefmt="html"
-    )
-    html_table = html_table.replace(
-        "<table>", '<table id="data_table" class="display">'
-    )
-    param_replaces = replaces.copy()
-    param_replaces["contents"] = html_table
-    build_html(template_env, param_replaces, "parameters.html", config)
-
-    # write cognates
-    html_table = tabulate(data["Cognates"], headers="firstrow", tablefmt="html")
-    html_table = html_table.replace(
-        "<table>", '<table id="data_table" class="display">'
-    )
-    param_replaces = replaces.copy()
-    param_replaces["contents"] = html_table
-    build_html(template_env, param_replaces, "cognates.html", config)
+        table_replaces = replaces.copy()
+        table_replaces["contents"] = html_table
+        build_html(template_env, table_replaces, "%s.html" % table, config)
 
 
 # TODO: write properly etc. should load with other templates;
