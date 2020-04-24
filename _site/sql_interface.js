@@ -54,7 +54,7 @@ var tableCreate = function () {
 	return function (columns, values) {
 		var tbl = document.createElement('table');
 		tbl.setAttribute("id", "data_table");
-		tbl.setAttribued("class", "display");
+		tbl.setAttribute("class", "display");
 		var html = '<thead>' + valconcat(columns, 'th') + '</thead>';
 		var rows = values.map(function (v) { return valconcat(v, 'td'); });
 		html += '<tbody>' + valconcat(rows, 'tr') + '</tbody>';
