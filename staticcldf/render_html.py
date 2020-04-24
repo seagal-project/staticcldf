@@ -19,6 +19,8 @@ def build_sql_page(data, replaces, template_env, config):
     # Compute inline data replacements
     inline_data = {}
     for table_name in data:
+        if table_name != "languages":
+            continue
         inline_data[table_name] = []
         for row in data[table_name]['rows']:
             row_insert = ", ".join(["'%s'" % cell['value'] for cell in row])
@@ -28,6 +30,8 @@ def build_sql_page(data, replaces, template_env, config):
     # TODO: use datatypes
     schemata = {}
     for table_name in data:
+        if table_name != "languages":
+            continue
         schemata[table_name] = ", ".join(["%s text" % col['name'].lower() for col in data[table_name]['columns']])
 
     # Generate page
