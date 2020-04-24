@@ -15,6 +15,30 @@ def build_tables(data, replaces, template_env, config):
         build_html(template_env, table_replaces, "%s.html" % table, config)
 
 
+def build_sql_page(data, replaces, template_env, config):
+    # Compute inline data replacements
+    inline_data = {}
+    for table_name in data:
+        inline_data[table_name] = []
+        for row in data[table_name]['rows']:
+            row_insert = ",".join(["'%s'" % cell['value'] for cell in row])
+            inline_data[table_name].append(row_insert)
+
+    # Build table schemata
+    # TODO: use datatypes
+    schemata = {}
+    for table_name in data:
+        schemata[table_name] = [label.lower() for label in data[table_name]['columns']]
+
+    print(schemata)
+
+    # Generate page
+    sql_replaces = replaces.copy()
+    sql_replaces['data'] = inline_data
+    sql_replaces['schemata'] = schemata
+    build_html(template_env, sql_replaces, "sql.html", config)
+
+
 # TODO: write properly etc. should load with other templates;
 # TODO: also copy images if needed
 def build_css(replaces, config):
@@ -40,7 +64,6 @@ def build_css(replaces, config):
     with open(file_path.as_posix(), "w") as handler:
         handler.write(source)
 
-
 def build_html(template_env, replaces, output_file, config):
     """
     Build and write an HTML file from template and replacements.
@@ -51,12 +74,15 @@ def build_html(template_env, replaces, output_file, config):
         {"name": "Parameters", "url": "parameters.html"},
         {"name": "Forms", "url": "forms.html"},
         {"name": "Cognates", "url": "cognates.html"},
+        {"name": "SQL", "url": "sql.html"},
     ]
 
     # Load proper template and apply replacements, also setting current date
     logging.info("Applying replacements to generate `%s`...", output_file)
     if output_file == "index.html":
         template = template_env.get_template("index.html")
+    elif output_file == "sql.html":
+        template = template_env.get_template("sql.html")
     else:
         template = template_env.get_template("datatable.html")
     source = template.render(
@@ -81,8 +107,11 @@ def render_html(cldf_data, replaces, config):
     # Build and write index.html
     build_html(template_env, replaces, "index.html", config)
 
+    # Build CSS files from template
+    build_css(replaces, config)
+
     # Build tables from CLDF data
     build_tables(cldf_data, replaces, template_env, config)
 
-    # Build CSS files from template
-    build_css(replaces, config)
+    # Build SQL query page
+    build_sql_page(cldf_data, replaces, template_env, config)

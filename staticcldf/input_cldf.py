@@ -57,6 +57,8 @@ def read_cldf_data(config):
             for column, valueUrl, dt in zip(column_names, valueUrls, datatypes):
                 if not row[column]:
                     value = ""
+                elif isinstance(row[column], (list, tuple)):
+                    value = " ".join([str(value) for value in row[column]])
                 else:
                     value = str(row[column])
 
