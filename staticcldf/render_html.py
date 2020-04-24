@@ -23,7 +23,7 @@ def build_sql_page(data, replaces, template_env, config):
             continue
         inline_data[table_name] = []
         for row in data[table_name]['rows']:
-            row_insert = ", ".join(["'%s'" % cell['value'] for cell in row])
+            row_insert = ", ".join(["'%s'" % cell['value'] if cell['value'] else 'NULL' for cell in row])
             inline_data[table_name].append(row_insert)
 
     # Build table schemata
