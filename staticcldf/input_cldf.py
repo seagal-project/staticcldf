@@ -25,8 +25,8 @@ def read_cldf_data(config):
     # of `columns` (with the sorted list of column names, found in the
     # rows), and `rows`. `rows` is a list of dictionaries, with the
     # `value` to be reported and optionally other information (such as the
-    # `url`) which may or may not be used by the template (`value` is
-    # always used).
+    # `url` and `datatype`) which may or may not be used by the template
+    # (`value` is always used).
     # TODO: make conversion less explicit and with fewer loops
     # table.base -> /home/tresoldi/src/staticcldf/demo_cldf
     # table.url -> cognates.csv
@@ -43,6 +43,7 @@ def read_cldf_data(config):
 
         column_names = [col.name for col in table.tableSchema.columns]
         valueUrls = [col.valueUrl for col in table.tableSchema.columns]
+        datatypes = [col.datatype.base for col in table.tableSchema.columns]
 
         # Holder for the table values in the returned structure
         table_data = []
@@ -53,10 +54,9 @@ def read_cldf_data(config):
             row_data = []
 
             # Iterate over all columns for the current row
-            for column, valueUrl in zip(column_names, valueUrls):
-                # TODO: deal with col.datatype.base
-                if isinstance(row[column], (list, tuple)):
-                    value = " ".join(row[column])
+            for column, valueUrl, dt in zip(column_names, valueUrls, datatypes):
+                if not row[column]:
+                    value = ""
                 else:
                     value = str(row[column])
 
@@ -69,7 +69,7 @@ def read_cldf_data(config):
                     url = None
 
                 # Append computed values to `row_data`
-                row_data.append({"value": value, "url": url})
+                row_data.append({"value": value, "url": url, "datatype":dt})
 
             # Append current row to the table
             table_data.append(row_data)
