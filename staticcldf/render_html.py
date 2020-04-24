@@ -10,19 +10,8 @@ from . import utils
 
 def build_tables(data, replaces, template_env, config):
     for table in data:
-        values = [
-            [cell["value"] for cell in row] for row in data[table]["rows"]
-        ]
-
-        html_table = tabulate(
-            values, headers=data[table]["columns"], tablefmt="html"
-        )
-        html_table = html_table.replace(
-            "<table>", '<table id="data_table" class="display">'
-        )
-
         table_replaces = replaces.copy()
-        table_replaces["contents"] = html_table
+        table_replaces["datatable"] = data[table]
         build_html(template_env, table_replaces, "%s.html" % table, config)
 
 
