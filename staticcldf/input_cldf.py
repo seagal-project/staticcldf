@@ -77,10 +77,10 @@ def read_cldf_data(config):
             table_data.append(row_data)
 
         #  Append contents to overall table
-        column_data = [{
-            "name" : name,
-            "datatype" : datatype,
-        } for name, datatype in zip(column_names, datatypes)]
+        column_data = [
+            {"name": name, "datatype": datatype}
+            for name, datatype in zip(column_names, datatypes)
+        ]
         cldf_data[table_key] = {"columns": column_data, "rows": table_data}
 
     # TODO: remove those which are all empty or None

@@ -22,8 +22,13 @@ def build_sql_page(data, replaces, template_env, config):
         if table_name != "languages":
             continue
         inline_data[table_name] = []
-        for row in data[table_name]['rows']:
-            row_insert = ", ".join(["'%s'" % cell['value'] if cell['value'] else 'NULL' for cell in row])
+        for row in data[table_name]["rows"]:
+            row_insert = ", ".join(
+                [
+                    "'%s'" % cell["value"] if cell["value"] else "NULL"
+                    for cell in row
+                ]
+            )
             inline_data[table_name].append(row_insert)
 
     # Build table schemata
@@ -32,12 +37,17 @@ def build_sql_page(data, replaces, template_env, config):
     for table_name in data:
         if table_name != "languages":
             continue
-        schemata[table_name] = ", ".join(["%s text" % col['name'].lower() for col in data[table_name]['columns']])
+        schemata[table_name] = ", ".join(
+            [
+                "%s text" % col["name"].lower()
+                for col in data[table_name]["columns"]
+            ]
+        )
 
     # Generate page
     sql_replaces = replaces.copy()
-    sql_replaces['data'] = inline_data
-    sql_replaces['schemata'] = schemata
+    sql_replaces["data"] = inline_data
+    sql_replaces["schemata"] = schemata
     build_html(template_env, sql_replaces, "sql.html", config)
 
 
@@ -65,6 +75,7 @@ def build_css(replaces, config):
     file_path = config["output_path"] / "main.css"
     with open(file_path.as_posix(), "w") as handler:
         handler.write(source)
+
 
 def build_html(template_env, replaces, output_file, config):
     """
