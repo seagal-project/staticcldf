@@ -6,7 +6,7 @@ from tabulate import tabulate
 from . import utils
 
 
-def build_tables(data, replaces, template, config):
+def build_tables(data, replaces, template_env, config):
     # write forms
     html_table = tabulate(
         data["Forms"], headers="firstrow", tablefmt="html"
@@ -16,7 +16,7 @@ def build_tables(data, replaces, template, config):
     )
     form_replaces = replaces.copy()
     form_replaces["contents"] = html_table
-    build_html(template, form_replaces, "forms.html", config)
+    build_html(template_env, form_replaces, "forms.html", config)
 
     # write languages
     html_table = tabulate(
@@ -27,7 +27,7 @@ def build_tables(data, replaces, template, config):
     )
     lang_replaces = replaces.copy()
     lang_replaces["contents"] = html_table
-    build_html(template, lang_replaces, "languages.html", config)
+    build_html(template_env, lang_replaces, "languages.html", config)
 
     # write concepts
     html_table = tabulate(
@@ -38,7 +38,7 @@ def build_tables(data, replaces, template, config):
     )
     param_replaces = replaces.copy()
     param_replaces["contents"] = html_table
-    build_html(template, param_replaces, "parameters.html", config)
+    build_html(template_env, param_replaces, "parameters.html", config)
 
     # write cognates
     html_table = tabulate(
@@ -49,12 +49,13 @@ def build_tables(data, replaces, template, config):
     )
     param_replaces = replaces.copy()
     param_replaces["contents"] = html_table
-    build_html(template, param_replaces, "cognates.html", config)
+    build_html(template_env, param_replaces, "cognates.html", config)
 
-# TODO: write properly etc. should load with other templates
+# TODO: write properly etc. should load with other templates;
+# TODO: also copy images if needed
 def build_css(replaces, config):
     # Build template_file and layout path
-    template_path = config["base_path"] / "template"
+    template_path = config["base_path"] / "template_html"
     css_file = template_path / "main.css"
 
     # Build css file
@@ -76,18 +77,9 @@ def build_css(replaces, config):
         handler.write(source)
 
 
-def build_html(template, replaces, output_file, config):
+def build_html(template_env, replaces, output_file, config):
     """
     Build and write an HTML file from template and replacements.
-
-    Parameters
-    ----------
-    template : str TODO
-        Source for the HTML template.
-    replaces : dict
-        A dictionary of replaces for filling the template.
-    config : dict
-        A dictionary with the configurations.
     """
 
     tables = [
@@ -97,8 +89,9 @@ def build_html(template, replaces, output_file, config):
         {'name': 'Cognates', 'url':'cognates.html'},
     ]
 
-    # Apply replacements, also setting current data
+    # Load proper template and apply replacements, also setting current date
     logging.info("Applying replacements to generate `%s`...", output_file)
+    template = template_env.get_template("layout.html")
     source = template.render(
         tables=tables,
         file=output_file,
@@ -114,14 +107,14 @@ def build_html(template, replaces, output_file, config):
 
 
 def render_html(cldf_data, replaces, config):
-    # Load Jinja HTML template
-    template = utils.load_templates(config)
+    # Load Jinja HTML template environment
+    template_env = utils.load_template_env(config)
 
     # Build and write index.html
-    build_html(template, replaces, "index.html", config)
+    build_html(template_env, replaces, "index.html", config)
 
     # Build tables from CLDF data
-    build_tables(cldf_data, replaces, template, config)
+    build_tables(cldf_data, replaces, template_env, config)
 
     # Build CSS files from template
     build_css(replaces, config)

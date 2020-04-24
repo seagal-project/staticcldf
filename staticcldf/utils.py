@@ -37,7 +37,7 @@ def load_config(base_path):
     with open("config.json") as config_file:
         config = json.load(config_file)
 
-    # Inner function for loading markdown files and converting to HTML
+    # Inner function for loading markdown files and converting them to HTML
     # TODO: only convert if .md
     def _md2html(filename, base_path):
         logging.info("Reading contents from `%s`..." % filename)
@@ -65,21 +65,13 @@ def load_config(base_path):
     return config, replaces
 
 
-def load_templates(config):
+def load_template_env(config):
     logging.info("Loading templates...")
 
     # Build template_file and layout path
-    template_path = config["base_path"] / "template"
-    template_file = template_path / "layout.html"
+    template_path = config["base_path"] / "template_html"
 
-    # Load layout template
-    with open(template_file.as_posix()) as handler:
-        layout_template = handler.read()
-    logging.info("Loaded layout template of %i bytes.", len(layout_template))
+    # Build Jija template environment
+    template_env = Environment(loader=FileSystemLoader(template_path.as_posix()))
 
-    # Build Jinja Environment
-    template = Environment(
-        loader=FileSystemLoader(template_path.as_posix())
-    ).from_string(layout_template)
-
-    return template
+    return template_env
