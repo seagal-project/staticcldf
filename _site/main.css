@@ -4,7 +4,7 @@ html {
     min-height: 100%;
 }
 body {
-    background-color: #fff;
+    background-color: #fdfdfd;
 }
 .page-footer {
     background-color: #222;
@@ -18,4 +18,8 @@ body {
 #contents {
     margin-top: 2em;
     margin-bottom: 2em;
+}
+
+.sql-execute {
+    margin:10px;
 }
