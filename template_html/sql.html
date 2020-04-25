@@ -29,9 +29,10 @@ SELECT * FROM languages;
 SELECT * FROM forms WHERE language_id="Achagua";
 </textarea>
 
-  <button id="execute" class="button">Execute</button>
-  <button id='savedb' class="button">Download SQLite-db</button>
-
+<div class='sql-execute'>
+  <button id="execute" class="btn btn-dark btn-sm">Execute</button>
+  <button id='savedb' class="btn btn-dark btn-sm">Download SQLite-db</button>
+</div>
   <div id="error" class="error"></div>
 
   <pre id="output">Results will be displayed here</pre>
